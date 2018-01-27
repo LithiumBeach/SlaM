@@ -80,6 +80,7 @@
   <ItemGroup>
     <Compile Include="Assets\Code\Piston.cs" />
     <Compile Include="Assets\Code\PistonManager.cs" />
+    <Compile Include="Assets\Code\TileGrid.cs" />
     <Compile Include="Assets\Code\utility\SingletonBehavior.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
