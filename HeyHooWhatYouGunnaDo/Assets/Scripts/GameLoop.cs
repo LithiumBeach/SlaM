@@ -65,7 +65,7 @@ public class GameLoop : SingletonBehavior<GameLoop>
     {
         if (m_history.Count > 0)
         {
-            m_history.Peek().m_Symbol.gameObject.SetActive(true); 
+            m_history.Peek().m_Symbol.gameObject.SetActive(true);
         }
         m_history.Push(node);
 
@@ -128,7 +128,7 @@ public class GameLoop : SingletonBehavior<GameLoop>
     private void ResetGame()
     {
         NodeBehaviour.ResetNodes();
-        if(CurrentLevel)
+        if (CurrentLevel)
             CurrentLevel.ResetLevel();
 
         //  Intersect
@@ -139,7 +139,7 @@ public class GameLoop : SingletonBehavior<GameLoop>
 
     private void PopThroughHistory()
     {
-        while(m_history.Count > 0)
+        while (m_history.Count > 0)
         {
             NodeBehaviour node = m_history.Pop();
 

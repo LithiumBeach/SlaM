@@ -5,9 +5,6 @@ using UnityEngine;
 
 [System.Serializable]
 [ExecuteInEditMode]
-#if UNITY_EDITOR
-[UnityEditor.CanEditMultipleObjects]
-#endif
 public class NorseSymbol : MonoBehaviour
 {
     public int dotsWidth = 3;
