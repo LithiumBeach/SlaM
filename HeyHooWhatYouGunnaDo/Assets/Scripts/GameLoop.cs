@@ -70,7 +70,21 @@ public class GameLoop : MonoBehaviour
 
     private void HeardTraverseNode(NodeBehaviour node)
     {
-        m_CurrentSymbol.IntersectionWith(node.m_Symbol);
+        switch (node.m_Operator)
+        {
+            case EBoolOperator.Union:
+                m_CurrentSymbol.UnionWith(node.m_Symbol);
+                break;
+            case EBoolOperator.Intersection:
+                m_CurrentSymbol.IntersectionWith(node.m_Symbol);
+                break;
+            case EBoolOperator.Complement:
+
+                m_CurrentSymbol.UnionWith(node.m_Symbol);
+                break;
+            default:
+                break;
+        }
         if (EnergyLauncher.instance.CurrentSymbolData.IsMatchingKey(CorrectKeyFormation))
         {
             Debug.Log("GAME WON!");
