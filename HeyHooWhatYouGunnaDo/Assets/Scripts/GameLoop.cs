@@ -5,32 +5,53 @@ using UnityEngine;
 public class GameLoop : MonoBehaviour
 {
     public bool[] CorrectKeyFormation = new bool[(int)SymbolModel.eKey.COUNT];
-
+    public Level CurrentLevel;
     public NorseSymbol m_CurrentSymbol;
     public NorseSymbol m_CompleteConditionSymbol;
 
-	// Use this for initialization
-	void Start ()
+    public Level[] Levels;
+    private int _currentLevelIndex;
+
+    // Use this for initialization
+    void Start()
     {
         Initialize();
         RegisterEvents();
         RandomizeCorrectKey();
-	}
-	
-	// Update is called once per frame
-	void Update ()
+    }
+
+    // Update is called once per frame
+    void Update()
     {
-        if(Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             ResetGame();
         }
-	}
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            CurrentLevel.CompleteLevel();
+        }
+    }
 
     private void Initialize()
     {
-        for(int i = 0; i < (int)SymbolModel.eKey.COUNT; ++i)
+        if (Levels.Length > 0)
+        {
+            CurrentLevel = Levels[0];
+            _currentLevelIndex = 0;
+        }
+        for (int i = 0; i < (int)SymbolModel.eKey.COUNT; ++i)
         {
             CorrectKeyFormation[i] = false;
+        }
+    }
+
+    public void IncrementLevel()
+    {
+        if (_currentLevelIndex != Levels.Length - 1)
+        {
+            _currentLevelIndex++;
+            CurrentLevel = Levels[_currentLevelIndex];
         }
     }
 
@@ -49,14 +70,13 @@ public class GameLoop : MonoBehaviour
 
     private void HeardTraverseNode(NodeBehaviour node)
     {
-         m_CurrentSymbol.UnionWith(node.m_Symbol);
-
-        if(EnergyLauncher.instance.CurrentSymbolData.IsMatchingKey(CorrectKeyFormation))
+        m_CurrentSymbol.IntersectionWith(node.m_Symbol);
+        if (EnergyLauncher.instance.CurrentSymbolData.IsMatchingKey(CorrectKeyFormation))
         {
             Debug.Log("GAME WON!");
         }
 
-        if(NodeBehaviour.AllNodesClosed())
+        if (NodeBehaviour.AllNodesClosed())
         {
             ResetGame();
         }
