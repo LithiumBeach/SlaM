@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class GameLoop : SingletonBehavior<GameLoop>
 {
@@ -43,6 +44,7 @@ public class GameLoop : SingletonBehavior<GameLoop>
 
         NodeBehaviour nb = CurrentLevel.StartingNode.GetComponentInChildren<NodeBehaviour>();
         m_YourSymbol.UnionWith(nb.m_Symbol);
+        MoveYourSymbolTo(nb.m_Symbol);
     }
 
     public void IncrementLevel()
@@ -61,6 +63,10 @@ public class GameLoop : SingletonBehavior<GameLoop>
 
     private void HeardTraverseNode(NodeBehaviour node)
     {
+        if (m_history.Count > 0)
+        {
+            m_history.Peek().m_Symbol.gameObject.SetActive(true);
+        }
         m_history.Push(node);
 
         bool hardReset = false;
@@ -88,14 +94,29 @@ public class GameLoop : SingletonBehavior<GameLoop>
                 }
                 break;
             default:
+                Debug.Log("You shouldn't be here bud");
                 break;
         }
 
-        if ((NodeBehaviour.AllNodesClosed() && !CurrentLevel.LevelComplete) || hardReset)
+        MoveYourSymbolTo(node.m_Symbol);
+        node.m_Symbol.gameObject.SetActive(false);
+
+        if (NodeBehaviour.AllNodesClosed() || hardReset)
         {
+            node.m_Symbol.gameObject.SetActive(true);
             ResetGame();
         }
 
+    }
+
+    private void MoveYourSymbolTo(NorseSymbol symb)
+    {
+        Vector3 delta = symb.transform.position - m_YourSymbol.transform.position;
+        for (int i = 0; i < m_YourSymbol.m_Lines.Count; i++)
+        {
+            m_YourSymbol.m_Lines[i].line.SetPositions(new Vector3[] { m_YourSymbol.m_Lines[i].line.GetPosition(0) + delta, m_YourSymbol.m_Lines[i].line.GetPosition(1) + delta });
+        }
+        m_YourSymbol.transform.position = symb.transform.position;
     }
 
     private void OnCorrectSymbol()
@@ -107,7 +128,7 @@ public class GameLoop : SingletonBehavior<GameLoop>
     private void ResetGame()
     {
         NodeBehaviour.ResetNodes();
-        if(CurrentLevel)
+        if (CurrentLevel)
             CurrentLevel.ResetLevel();
 
         //  Intersect
@@ -118,7 +139,7 @@ public class GameLoop : SingletonBehavior<GameLoop>
 
     private void PopThroughHistory()
     {
-        while(m_history.Count > 0)
+        while (m_history.Count > 0)
         {
             NodeBehaviour node = m_history.Pop();
 

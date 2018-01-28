@@ -86,10 +86,11 @@ public class NodeBehaviour : MonoBehaviour
         {
             OnNodeTraversed(this);
             ChangeCurrentColor(Color.grey);
-            SoundManager.Instance.PlayAudio((int)SoundManager.AudioClipKeys.Select);
-            var ps = GetComponentInChildren<ParticleSystem>();
-            if (ps)
-                ps.Play();
+            if(m_Operator != EBoolOperator.EndComparison)
+                SoundManager.Instance.PlayAudio((int)SoundManager.AudioClipKeys.Select);
+            var effects = GetComponentsInChildren<ParticleSystem>();
+            foreach (var effect in effects)
+                effect.Play();
 
         }
     }
@@ -101,6 +102,9 @@ public class NodeBehaviour : MonoBehaviour
         IsRaycastSelected = false;
 
         ChangeCurrentColor(Color.white);
+        var effects = GetComponentsInChildren<ParticleSystem>();
+        foreach (var effect in effects)
+            effect.Stop();
     }
 
     public void ChangeCurrentColor(Color newColor)
