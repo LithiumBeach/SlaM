@@ -7,9 +7,11 @@ public class Level : MonoBehaviour
     public GameObject CompletedEffect;
     public GameObject StartingNode;
     public GameObject EndingNode;
+    public LightPathScript LightPathRoot;
     public NorseSymbol m_SymbolToCompleteLevel;
     public float CompleteDelay = 3f;
     private bool _completed;
+    public bool LevelComplete { get { return _completed; } }
     public Transform m_LevelBG = null;
     public float NodeDisplacement = -1;
 
@@ -18,6 +20,10 @@ public class Level : MonoBehaviour
         if(StartingNode == null)
         {
             Debug.LogError("Level::Start() -- No starting node has been set for level.");
+        }
+        if(LightPathRoot == null)
+        {
+            Debug.LogWarning("Level::Start() -- No root object for LightPathRoot set!");
         }
 
 
@@ -36,6 +42,21 @@ public class Level : MonoBehaviour
     public void ResetLevel()
     {
         EnergyLauncher.instance.ResetToNode(StartingNode.transform.Find("EmptyNode").gameObject);
+
+        if(LightPathRoot != null)
+            LightPathRoot.ClearAllLines();
+    }
+
+    public void PushLightLine(Transform pointA, Transform pointB)
+    {
+        if(LightPathRoot != null)
+        {
+            LightPathRoot.PushNewLine(pointA, pointB);
+        }
+        else
+        {
+            Debug.LogWarning("There is no root object set for the Lights!");
+        }
     }
 
     public void CompleteLevel()
@@ -50,6 +71,7 @@ public class Level : MonoBehaviour
     {
         yield return new WaitForSeconds(CompleteDelay);
         FindObjectOfType<FixedCameraRotate>().RotateToNextLevel();
+        ResetLevel();
         GameLoop.Instance.IncrementLevel();
     }
 
