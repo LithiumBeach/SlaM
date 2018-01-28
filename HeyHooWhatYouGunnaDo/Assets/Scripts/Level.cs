@@ -19,10 +19,12 @@ public class Level : MonoBehaviour {
     public void CompleteLevel(){
         _completed = true;
         CompletedEffect.SetActive(true);
+        StartCoroutine(WaitForComplete());
     }
 
     private IEnumerator WaitForComplete(){
         yield return new WaitForSeconds(CompleteDelay);
+        FindObjectOfType<FixedCameraRotate>().RotateToNextLevel();
         FindObjectOfType<GameLoop>().IncrementLevel();
     }
 }

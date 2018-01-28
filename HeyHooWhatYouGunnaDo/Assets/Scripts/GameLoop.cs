@@ -9,7 +9,7 @@ public class GameLoop : MonoBehaviour
     public NorseSymbol m_CurrentSymbol;
     public NorseSymbol m_CompleteConditionSymbol;
 
-    private Level[] _levels;
+    public Level[] Levels;
     private int _currentLevelIndex;
     
 	// Use this for initialization
@@ -27,12 +27,16 @@ public class GameLoop : MonoBehaviour
         {
             ResetGame();
         }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            CurrentLevel.CompleteLevel();
+        }
 	}
 
     private void Initialize()
     {
-        if(_levels.Length > 0){
-            CurrentLevel = _levels[0];
+        if(Levels.Length > 0){
+            CurrentLevel = Levels[0];
             _currentLevelIndex = 0;
         }
         for(int i = 0; i < (int)SymbolModel.eKey.COUNT; ++i)
@@ -42,9 +46,9 @@ public class GameLoop : MonoBehaviour
     }
 
     public void IncrementLevel(){
-        if(_currentLevelIndex != _levels.Length) {
+        if(_currentLevelIndex != Levels.Length-1) {
             _currentLevelIndex++;
-            CurrentLevel = _levels[_currentLevelIndex];
+            CurrentLevel = Levels[_currentLevelIndex];
         }
     }
 
