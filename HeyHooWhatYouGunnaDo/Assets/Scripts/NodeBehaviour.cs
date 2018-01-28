@@ -202,12 +202,12 @@ public class NodeBehaviour : MonoBehaviour
     public void OnTravelTo()
     {
         IsOpen = false;
-        if(OnNodeTraversed != null)
+        ChangeCurrentColor(Color.red);
+
+        if (OnNodeTraversed != null)
         {
             OnNodeTraversed(this);
         }
-
-        ChangeCurrentColor(Color.red);
     }
 
     private void ResetNode()
