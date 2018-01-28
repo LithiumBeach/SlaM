@@ -3,9 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+[ExecuteInEditMode]
 public class NorseLine
 {
+    [SerializeField]
     private NorseDot m_A;
+    [SerializeField]
     private NorseDot m_B;
 
     public NorseDot A { get { return m_A; } set { m_A = value; line.SetPosition(0, value.transform.position); } }

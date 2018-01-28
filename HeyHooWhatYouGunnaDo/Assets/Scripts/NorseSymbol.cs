@@ -3,28 +3,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+[ExecuteInEditMode]
 public class NorseSymbol : MonoBehaviour
 {
     public int dotsWidth = 3;
     public int dotsHeight = 4;
-
-    [HideInInspector]
-    public NorseDot[,] m_Dots;// = new NorseDot[3, 4](Instantiate(PrefabManager.Instance.m_Data.m_NorseDot.gameObject).GetComponent<NorseDot>());
-
-    private Stack<NorseDot> m_ActivatedDotStack = new Stack<NorseDot>();
-    public List<NorseLine> m_Lines = new List<NorseLine>();
-
-    void Awake()
-    {
-        ReInitializeDots();
-    }
+    [SerializeField]
+    private List<NorseDot> m_Dots;
+    [SerializeField]
+    private List<NorseDot> m_ActivatedDotStack = new List<NorseDot>();
+    [SerializeField]
+    private List<NorseLine> m_Lines = new List<NorseLine>();
 
     private void OnDotActivate(NorseDot dot)
     {
-        NorseDot prevDot = m_ActivatedDotStack.Count > 0 ? m_ActivatedDotStack.Peek() : null;
+        NorseDot prevDot = m_ActivatedDotStack.Count > 0 ? m_ActivatedDotStack[m_ActivatedDotStack.Count-1] : null;
         dot.IsActivated = true;
         if (prevDot != null)
         {
+            if (dot.m_GridPositionX == prevDot.m_GridPositionX && dot.m_GridPositionY == prevDot.m_GridPositionY)
+            {
+                return;
+            }
+
             NorseLine nlCheck = m_Lines.Find(
                 item => ((item.A.m_GridPositionX == dot.m_GridPositionX && item.A.m_GridPositionY == dot.m_GridPositionY) &&
                          (item.B.m_GridPositionX == prevDot.m_GridPositionX && item.B.m_GridPositionY == prevDot.m_GridPositionY)));
@@ -35,7 +37,7 @@ public class NorseSymbol : MonoBehaviour
                          (item.B.m_GridPositionX == dot.m_GridPositionX && item.B.m_GridPositionY == dot.m_GridPositionY)));
                 if (nlCheck == null)//if we haven't already made this line, bidirectionally, then add it.
                 {
-                    m_ActivatedDotStack.Push(dot);
+                    m_ActivatedDotStack.Add(dot);
 
                     //dot.m_LineRenderer.SetPositions(new Vector3[] { dot.transform.position, prevDot.transform.position });
                     NorseLine nl = new NorseLine();
@@ -54,14 +56,16 @@ public class NorseSymbol : MonoBehaviour
         }
         else
         {
-            m_ActivatedDotStack.Push(dot);
+            m_ActivatedDotStack.Add(dot);
         }
     }
+
     private void OnDotDeactivate(NorseDot dot)
     {
         while (m_ActivatedDotStack.Count > 0)
         {
-            NorseDot iterPop = m_ActivatedDotStack.Pop();
+            NorseDot iterPop = m_ActivatedDotStack[m_ActivatedDotStack.Count - 1];
+            m_ActivatedDotStack.RemoveAt(m_ActivatedDotStack.Count-1);
             iterPop.IsActivated = false;
 
             if (m_Lines.Count > 0)
@@ -80,6 +84,15 @@ public class NorseSymbol : MonoBehaviour
         }
     }
 
+    internal void UpdateAllDotDelegates()
+    {
+        for (int i = 0; i < m_Dots.Count; i++)
+        {
+            m_Dots[i].AOnActivate += OnDotActivate;
+            m_Dots[i].AOnDeactivate += OnDotDeactivate;
+        }
+    }
+
     public void ReInitializeDots()
     {
         //final sweep of children
@@ -91,9 +104,10 @@ public class NorseSymbol : MonoBehaviour
             GameObject.Destroy(transform.GetChild(transform.childCount - 1).gameObject);
 #endif
         }
-
+        m_Lines.Clear();
+        m_ActivatedDotStack.Clear();
         //initialize all dots.
-        m_Dots = new NorseDot[dotsWidth, dotsHeight];
+        m_Dots = new List<NorseDot>();// new NorseDot[dotsWidth, dotsHeight];
         for (int y = 0; y < dotsHeight; y++)
         {
             for (int x = 0; x < dotsWidth; x++)
@@ -107,7 +121,8 @@ public class NorseSymbol : MonoBehaviour
                 iter.AOnActivate = OnDotActivate;
                 iter.AOnDeactivate = OnDotDeactivate;
 
-                m_Dots[x, y] = iter;
+                //m_Dots[x][y] = iter;
+                m_Dots.Add(iter);
             }
         }
     }

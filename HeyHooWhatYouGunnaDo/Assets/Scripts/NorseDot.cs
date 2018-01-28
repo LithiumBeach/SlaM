@@ -6,10 +6,12 @@ using UnityEditor;
 using UnityEngine;
 #endif
 
+[System.Serializable]
+[ExecuteInEditMode]
 public class NorseDot : MonoBehaviour
 {
     public SpriteRenderer m_SprDot;
-    public CircleCollider2D m_Col;
+    public SphereCollider m_Col;
     private bool m_Activated = false;
     public bool IsActivated
     {
@@ -20,7 +22,9 @@ public class NorseDot : MonoBehaviour
             m_SprDot.sprite = m_Activated ? UIManager.Instance.m_Data.m_ActiveDot : UIManager.Instance.m_Data.m_InactiveDot;
         }
     }
+    [HideInInspector]
     public int m_GridPositionX;
+    [HideInInspector]
     public int m_GridPositionY;
 
     private void OnEnable()
@@ -41,18 +45,90 @@ public class NorseDot : MonoBehaviour
     {
         if (Input.GetMouseButtonUp(0))
         {
-            IsActivated = true;
+            //IsActivated = true;
             if (AOnActivate != null)
             {
-                AOnActivate(this); 
+                AOnActivate(this);
+            }
+            else
+            {
+                NorseSymbol dad = transform.parent.GetComponent<NorseSymbol>();
+                if (dad != null)
+                {
+                    dad.UpdateAllDotDelegates();
+                    AOnActivate(this);
+                }
             }
         }
         else if (Input.GetMouseButtonUp(1))
         {
-            IsActivated = false;
+            //IsActivated = false;
             if (AOnDeactivate != null)
             {
                 AOnDeactivate(this); 
+            }
+            else
+            {
+                NorseSymbol dad = transform.parent.GetComponent<NorseSymbol>();
+                if (dad != null)
+                {
+                    dad.UpdateAllDotDelegates();
+                }
+                AOnDeactivate(this);
+            }
+        }
+    }
+
+
+    void OnGUI()
+    {
+        Event e = Event.current;
+        if (e.type == EventType.Layout || e.type == EventType.Repaint)
+        {
+            EditorUtility.SetDirty(this); // this is important, if omitted, "Mouse down" will not be display
+        }
+        else if (e.type == EventType.MouseDown)
+        {
+            Ray r = HandleUtility.GUIPointToWorldRay(e.mousePosition);
+            RaycastHit hit;
+            if(Physics.Raycast(r, out hit))
+            {
+                if (hit.transform.gameObject != gameObject)
+                    return;
+                if (e.button == 0)
+                {
+                    IsActivated = true;
+                    if (AOnActivate != null)
+                    {
+                        AOnActivate(this);
+                    }
+                    else
+                    {
+                        NorseSymbol dad = transform.parent.GetComponent<NorseSymbol>();
+                        if (dad != null)
+                        {
+                            dad.UpdateAllDotDelegates();
+                            AOnActivate(this);
+                        }
+                    }
+                }
+                else if (e.button == 1)
+                {
+                    IsActivated = false;
+                    if (AOnDeactivate != null)
+                    {
+                        AOnDeactivate(this);
+                    }
+                    else
+                    {
+                        NorseSymbol dad = transform.parent.GetComponent<NorseSymbol>();
+                        if (dad != null)
+                        {
+                            dad.UpdateAllDotDelegates();
+                            AOnDeactivate(this);
+                        }
+                    }
+                }
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -15,5 +16,14 @@ public class NorseSymbolEditor : Editor
         {
             myScript.ReInitializeDots();
         }
+        //if (GUILayout.Button("Save Symbol"))
+        //{
+        //    SaveSymbol(myScript);
+        //}
+    }
+
+    private void SaveSymbol(NorseSymbol myScript)
+    {
+
     }
 }
