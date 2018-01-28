@@ -45,18 +45,36 @@ public class NorseDot : MonoBehaviour
     {
         if (Input.GetMouseButtonUp(0))
         {
-            IsActivated = true;
+            //IsActivated = true;
             if (AOnActivate != null)
             {
-                AOnActivate(this); 
+                AOnActivate(this);
+            }
+            else
+            {
+                NorseSymbol dad = transform.parent.GetComponent<NorseSymbol>();
+                if (dad != null)
+                {
+                    dad.UpdateAllDotDelegates();
+                    AOnActivate(this);
+                }
             }
         }
         else if (Input.GetMouseButtonUp(1))
         {
-            IsActivated = false;
+            //IsActivated = false;
             if (AOnDeactivate != null)
             {
                 AOnDeactivate(this); 
+            }
+            else
+            {
+                NorseSymbol dad = transform.parent.GetComponent<NorseSymbol>();
+                if (dad != null)
+                {
+                    dad.UpdateAllDotDelegates();
+                }
+                AOnDeactivate(this);
             }
         }
     }
@@ -84,6 +102,15 @@ public class NorseDot : MonoBehaviour
                     {
                         AOnActivate(this);
                     }
+                    else
+                    {
+                        NorseSymbol dad = transform.parent.GetComponent<NorseSymbol>();
+                        if (dad != null)
+                        {
+                            dad.UpdateAllDotDelegates();
+                            AOnActivate(this);
+                        }
+                    }
                 }
                 else if (e.button == 1)
                 {
@@ -91,6 +118,15 @@ public class NorseDot : MonoBehaviour
                     if (AOnDeactivate != null)
                     {
                         AOnDeactivate(this);
+                    }
+                    else
+                    {
+                        NorseSymbol dad = transform.parent.GetComponent<NorseSymbol>();
+                        if (dad != null)
+                        {
+                            dad.UpdateAllDotDelegates();
+                            AOnDeactivate(this);
+                        }
                     }
                 }
             }
