@@ -36,6 +36,7 @@ public class Level : MonoBehaviour
     {
         _completed = true;
         CompletedEffect.SetActive(true);
+        SoundManager.Instance.PlayAudio((int)SoundManager.AudioClipKeys.Correct);
         StartCoroutine(WaitForComplete());
     }
 
