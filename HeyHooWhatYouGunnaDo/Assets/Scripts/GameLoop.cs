@@ -7,10 +7,11 @@ public class GameLoop : MonoBehaviour
     public bool[] CorrectKeyFormation = new bool[(int)SymbolModel.eKey.COUNT];
     public Level CurrentLevel;
     public NorseSymbol m_CurrentSymbol;
-    public NorseSymbol m_CompleteConditionSymbol;
 
     public Level[] Levels;
     private int _currentLevelIndex;
+
+    private Stack<NodeBehaviour> m_history = new Stack<NodeBehaviour>();
 
     // Use this for initialization
     void Start()
@@ -40,10 +41,9 @@ public class GameLoop : MonoBehaviour
             CurrentLevel = Levels[0];
             _currentLevelIndex = 0;
         }
-        for (int i = 0; i < (int)SymbolModel.eKey.COUNT; ++i)
-        {
-            CorrectKeyFormation[i] = false;
-        }
+
+        NodeBehaviour nb = CurrentLevel.StartingNode.GetComponentInChildren<NodeBehaviour>();
+        m_CurrentSymbol.UnionWith(nb.m_Symbol);
     }
 
     public void IncrementLevel()
@@ -70,6 +70,9 @@ public class GameLoop : MonoBehaviour
 
     private void HeardTraverseNode(NodeBehaviour node)
     {
+        m_history.Push(node);
+
+        bool hardReset = false;
         switch (node.m_Operator)
         {
             case EBoolOperator.Union:
@@ -82,26 +85,69 @@ public class GameLoop : MonoBehaviour
 
                 m_CurrentSymbol.UnionWith(node.m_Symbol);
                 break;
+            case EBoolOperator.EndComparison:
+                m_history.Pop();
+                if(m_CurrentSymbol.IsEquivalentSymbol(node.m_Symbol))
+                {
+                    OnCorrectSymbol();
+                }
+                else
+                {
+                    Debug.Log("Hard reset hey");
+                    hardReset = true;
+                }
+                break;
             default:
                 break;
         }
-        if (EnergyLauncher.instance.CurrentSymbolData.IsMatchingKey(CorrectKeyFormation))
-        {
-            Debug.Log("GAME WON!");
-        }
 
-        if (NodeBehaviour.AllNodesClosed())
+        if (NodeBehaviour.AllNodesClosed() || hardReset)
         {
             ResetGame();
         }
 
     }
 
+    private void OnCorrectSymbol()
+    {
+        Debug.Log("Game Won!");
+        CurrentLevel.CompleteLevel();
+    }
+
     private void ResetGame()
     {
         NodeBehaviour.ResetNodes();
+        if(CurrentLevel)
+            CurrentLevel.ResetLevel();
 
-        //  Move back to START NODE
+        //  Intersect
+        m_CurrentSymbol.IntersectionWith(m_CurrentSymbol);
+        //  Unionize
+        m_CurrentSymbol.UnionWith(CurrentLevel.StartingNode.GetComponentInChildren<NodeBehaviour>().m_Symbol);
+    }
+
+    private void PopThroughHistory()
+    {
+        while(m_history.Count > 0)
+        {
+            NodeBehaviour node = m_history.Pop();
+
+            switch (node.m_Operator)
+            {
+                case EBoolOperator.Union:
+                    m_CurrentSymbol.UnionWith(node.m_Symbol);
+                    break;
+                case EBoolOperator.Intersection:
+                    m_CurrentSymbol.IntersectionWith(node.m_Symbol);
+                    break;
+                case EBoolOperator.Complement:
+                    break;
+                case EBoolOperator.EndComparison:
+                default:
+                    Debug.Log("YOu shouldnt be here...");
+                    break;
+            }
+        }
     }
 
 

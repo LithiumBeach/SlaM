@@ -140,6 +140,25 @@ public class NorseSymbol : MonoBehaviour
         throw new NotImplementedException();
     }
 
+    public bool IsEquivalentSymbol(NorseSymbol otherSymbol)
+    {
+        for (int i = 0; i < otherSymbol.m_Lines.Count; i++)
+        {
+            //check if line already exists (bidirectionally)
+            NorseLine foundLine = m_Lines.Find(mline =>
+            ((mline.A.m_GridPositionX == otherSymbol.m_Lines[i].A.m_GridPositionX && mline.A.m_GridPositionY == otherSymbol.m_Lines[i].A.m_GridPositionY) &&
+            (mline.B.m_GridPositionX == otherSymbol.m_Lines[i].B.m_GridPositionX && mline.B.m_GridPositionY == otherSymbol.m_Lines[i].B.m_GridPositionY)) ||
+            ((mline.A.m_GridPositionX == otherSymbol.m_Lines[i].B.m_GridPositionX && mline.A.m_GridPositionY == otherSymbol.m_Lines[i].B.m_GridPositionY) &&
+            (mline.B.m_GridPositionX == otherSymbol.m_Lines[i].A.m_GridPositionX && mline.B.m_GridPositionY == otherSymbol.m_Lines[i].A.m_GridPositionY)));
+
+            if(foundLine == null)
+            {
+                return false;
+            }
+
+        }
+        return true;
+    }
 
     private void OnDotDeactivate(NorseDot dot)
     {

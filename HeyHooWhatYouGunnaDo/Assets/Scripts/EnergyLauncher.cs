@@ -97,7 +97,6 @@ public class EnergyLauncher : MonoBehaviour
     private void Launch()
     {
         _launched = false;
-        bool resetLaunch = true;
         
         //  Use object already set in UpdateRaycast
         if(RaycastSelectObject != null)
@@ -123,13 +122,13 @@ public class EnergyLauncher : MonoBehaviour
 
     private void EnergizeNode(GameObject node) {
 
-        //  Parent this object to the new node
-        this.transform.SetParent(node.transform);
-        this.transform.localPosition = Vector3.zero;
-
         //  Update this NodeBehaviour
         NodeBehaviour nodeBehaviour = GetComponentInParent<NodeBehaviour>();
         nodeBehaviour.OnTravelFrom();
+
+        //  Parent this object to the new node
+        this.transform.SetParent(node.transform);
+        this.transform.localPosition = Vector3.zero;
 
         //Reset and set a cooldown
         Recharge();
@@ -141,6 +140,13 @@ public class EnergyLauncher : MonoBehaviour
         Launched = true;
         Initialize();
         StartCoroutine(LaunchCooldown());
+    }
+
+    public void ResetToNode(GameObject node)
+    {
+        EnergizeNode(node);
+        NodeBehaviour nodeScript = node.GetComponentInChildren<NodeBehaviour>();
+        nodeScript.OnTravelTo();
     }
 
     private IEnumerator LaunchCooldown(){

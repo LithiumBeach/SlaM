@@ -123,7 +123,8 @@ public enum EBoolOperator
 {
     Union,
     Intersection,
-    Complement
+    Complement,
+    EndComparison
 }
 
 public class NodeBehaviour : MonoBehaviour
@@ -195,6 +196,7 @@ public class NodeBehaviour : MonoBehaviour
     public void OnTravelFrom()
     {
         IsOpen = false;
+        ChangeCurrentColor(Color.red);
     }
 
     public void OnTravelTo()
