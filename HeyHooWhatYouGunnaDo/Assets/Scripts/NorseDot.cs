@@ -65,7 +65,7 @@ public class NorseDot : MonoBehaviour
             //IsActivated = false;
             if (AOnDeactivate != null)
             {
-                AOnDeactivate(this); 
+                AOnDeactivate(this);
             }
             else
             {
@@ -93,7 +93,7 @@ public class NorseDot : MonoBehaviour
         {
             Ray r = HandleUtility.GUIPointToWorldRay(e.mousePosition);
             RaycastHit hit;
-            if(Physics.Raycast(r, out hit))
+            if (Physics.Raycast(r, out hit, maxDistance: 1000f, layerMask: 1 << 8))
             {
                 if (hit.transform.gameObject != gameObject)
                     return;

@@ -44,6 +44,6 @@ public class Level : MonoBehaviour
     {
         yield return new WaitForSeconds(CompleteDelay);
         FindObjectOfType<FixedCameraRotate>().RotateToNextLevel();
-        FindObjectOfType<GameLoop>().IncrementLevel();
+        GameLoop.Instance.IncrementLevel();
     }
 }

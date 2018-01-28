@@ -6,7 +6,8 @@ using UnityEngine;
 public class EnergyLauncher : MonoBehaviour
 {
     public static EnergyLauncher instance = null;
-    
+    public LineRenderer _lineRenderer;
+
     private GameObject RaycastSelectObject;
     public SymbolModel CurrentSymbolData;
     public float RotateSpeed;
@@ -14,11 +15,11 @@ public class EnergyLauncher : MonoBehaviour
     public bool StartNode;
     public bool DBG_ControlWithMouse = true;
     private MeshRenderer _meshRenderer;
-    private LineRenderer _lineRenderer;
     private bool _launched;
 
-    public bool Launched{
-        set {_launched = value; }
+    public bool Launched
+    {
+        set { _launched = value; }
         get { return _launched; }
     }
 
@@ -29,26 +30,28 @@ public class EnergyLauncher : MonoBehaviour
 
     private void Start()
     {
-        if (StartNode)
+        //if (StartNode)
             Initialize();
     }
 
-    public void Initialize() {
-        _lineRenderer = GetComponent<LineRenderer>();
+    public void Initialize()
+    {
+        _lineRenderer = this.GetComponent<LineRenderer>();
         _lineRenderer.positionCount = 2;
-        _lineRenderer.SetPositions(new Vector3[] { transform.position, CursorControl.instance.CursorPosition});
+        _lineRenderer.SetPositions(new Vector3[] { transform.position, CursorControl.instance.CursorPosition });
         _meshRenderer = GetComponentInParent<MeshRenderer>();
-        CurrentSymbolData = new SymbolModel();
     }
 
-    private void Update() {
-        if (!CursorControl.instance || _lineRenderer.positionCount < 2)
+    private void Update()
+    {
+        if (!CursorControl.instance || _lineRenderer == null)
             return;
 
         UpdateRaycast();
         UpdateLinePosition();
-        
-        if (Input.GetKeyDown(KeyCode.Space) && !_launched){
+
+        if (Input.GetKeyDown(KeyCode.Space) && !_launched)
+        {
             Launch();
         }
     }
@@ -56,16 +59,16 @@ public class EnergyLauncher : MonoBehaviour
     private void UpdateRaycast()
     {
         var launchDirection = CursorControl.instance.CursorPosition - transform.position;
-        var launchDistance = launchDirection.magnitude;
+        //var launchDistance = launchDirection.magnitude;
 
         var ray = new Ray(transform.position, launchDirection);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, launchDistance))
+        if (Physics.Raycast(ray, out hit, maxDistance: 1000f, layerMask: 1 << 9))
         {
             NodeBehaviour nodeObj = hit.transform.GetComponent<NodeBehaviour>();
             if (nodeObj != null && nodeObj.gameObject != RaycastSelectObject)
             {
-                if(RaycastSelectObject != null)
+                if (RaycastSelectObject != null)
                 {
                     RaycastSelectObject.GetComponent<NodeBehaviour>().SetAsRaycastHit(false);
                 }
@@ -97,22 +100,21 @@ public class EnergyLauncher : MonoBehaviour
     private void Launch()
     {
         _launched = false;
-        
+
         //  Use object already set in UpdateRaycast
-        if(RaycastSelectObject != null)
+        if (RaycastSelectObject != null)
         {
             NodeBehaviour nodeObj = RaycastSelectObject.GetComponent<NodeBehaviour>();
 
             if (nodeObj != null)
             {
-                if(nodeObj.IsCursorSelected && nodeObj.IsOpen)
+                if (nodeObj.IsCursorSelected && nodeObj.IsOpen)
                 {
                     EnergizeNode(RaycastSelectObject);
-                    CurrentSymbolData.ProcessUpdate(nodeObj._keyData);
                     nodeObj.OnTravelTo();
                     _launched = true;
                 }
-                else 
+                else
                 {
                     nodeObj.FlashWarningColor();
                 }
@@ -120,7 +122,8 @@ public class EnergyLauncher : MonoBehaviour
         }
     }
 
-    private void EnergizeNode(GameObject node) {
+    private void EnergizeNode(GameObject node)
+    {
 
         //  Update this NodeBehaviour
         NodeBehaviour nodeBehaviour = GetComponentInParent<NodeBehaviour>();
@@ -149,12 +152,14 @@ public class EnergyLauncher : MonoBehaviour
         nodeScript.OnTravelTo();
     }
 
-    private IEnumerator LaunchCooldown(){
+    private IEnumerator LaunchCooldown()
+    {
         yield return new WaitForSeconds(LaunchDelay);
         _launched = false;
     }
 
-    private IEnumerator SelfDestruct(){
+    private IEnumerator SelfDestruct()
+    {
         yield return new WaitForSeconds(0.01f);
         Destroy(this);
     }

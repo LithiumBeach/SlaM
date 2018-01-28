@@ -215,7 +215,7 @@ public class NorseSymbol : MonoBehaviour
                 NorseDot iter = Instantiate(PrefabManager.Instance.m_Data.m_NorseDot.gameObject, transform).GetComponent<NorseDot>();
                 //iter.m_SprDot.sprite = UIManager.Instance.m_Data.m_InactiveDot; //should be unnecessary, this should be set in the prefab
                 iter.name = "dot (" + x.ToString() + " ," + y.ToString() + ")";
-                iter.transform.position = new Vector3((x * m_DotSpacingScale), (y * m_DotSpacingScale) + (x % 2 == 1 ? (.5f * m_DotSpacingScale) : 0f), 0);
+                iter.transform.localPosition = new Vector3((x * m_DotSpacingScale), (y * m_DotSpacingScale) + (x % 2 == 1 ? (.5f * m_DotSpacingScale) : 0f), 0);
                 iter.m_GridPositionX = x;
                 iter.m_GridPositionY = y;
                 iter.AOnActivate = OnDotActivate;

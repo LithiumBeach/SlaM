@@ -27,10 +27,11 @@ public class CursorControl : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        Vector3 positionUpdate = this.transform.position;
+        Vector3 positionUpdate = transform.position;
         positionUpdate.x += CursorSpeed * Input.GetAxis("Horizontal");
         positionUpdate.y += CursorSpeed * Input.GetAxis("Vertical");
-        this.transform.position = positionUpdate;
+        positionUpdate.z = GameLoop.Instance.CurrentLevel.transform.position.z - 0.5f;
+        transform.position = positionUpdate;
 
         ClampPosition();
 	}

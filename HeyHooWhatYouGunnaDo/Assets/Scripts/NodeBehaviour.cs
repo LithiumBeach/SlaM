@@ -53,45 +53,6 @@ public class SymbolModel
         _currentMethod = (eUpdateMethod)UnityEngine.Random.Range(0, (int)eUpdateMethod.COUNT);
     }
 
-    //  I don't like using ref too much, so a SymbolModel obj will update itself based on information from another SymbolModel obj... I'm so sorry
-    public void ProcessUpdate(SymbolModel dataUpdate)
-    {
-        for(int i = 0; i < (int)eKey.COUNT; ++i)
-        {
-            switch(_currentMethod)
-            {
-                case eUpdateMethod.Union:
-                    {
-                        if (dataUpdate.ActiveKeys[i])
-                        {
-                            ActiveKeys[i] = true;
-                        }
-                    }
-                    break;
-                case eUpdateMethod.Exclusive:
-                    {
-                        if (dataUpdate.ActiveKeys[i] && ActiveKeys[i])
-                        {
-                            ActiveKeys[i] = true;
-                        }
-                        else
-                        {
-                            ActiveKeys[i] = false;
-                        }
-                    }
-                    break;
-                case eUpdateMethod.Remove:
-                    {
-                        if (dataUpdate.ActiveKeys[i])
-                        {
-                            ActiveKeys[i] = false;
-                        }
-                    }
-                    break;
-            }
-        }
-    }
-
     public bool IsMatchingKey(bool[] correctKey)
     {
         for(int i = 0; i < (int)eKey.COUNT; ++i)

@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using patterns;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameLoop : MonoBehaviour
+public class GameLoop : SingletonBehavior<GameLoop>
 {
     public bool[] CorrectKeyFormation = new bool[(int)SymbolModel.eKey.COUNT];
     public Level CurrentLevel;
