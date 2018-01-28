@@ -48,7 +48,7 @@ public class EnergyLauncher : MonoBehaviour
         UpdateRaycast();
         UpdateLinePosition();
 
-        if (Input.GetKeyDown(KeyCode.Space) && !_launched)
+        if (Input.GetButtonDown("Fire1") && !_launched)
         {
             Launch();
         }
