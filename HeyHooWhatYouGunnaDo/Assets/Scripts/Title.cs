@@ -13,6 +13,7 @@ public class Title : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.Space))
         {
             StartEffect.Play();
+            SoundManager.Instance.PlayAudio(0);
             StartCoroutine(WaitToStart());
         }
 	}

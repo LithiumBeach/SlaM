@@ -29693,7 +29693,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ed84b5765df8040d79fade8ef601d359, type: 3}
   - {fileID: 8300000, guid: 150a97dd4908c4fc4bab442727eb1361, type: 3}
   - {fileID: 8300000, guid: 3249378d375d1430fbfa682fc29e98f9, type: 3}
-  - {fileID: 8300000, guid: 571dad2dac278497a996e34a8e9e0ed7, type: 3}
+  - {fileID: 8300000, guid: 0d312c10466dc40aca6ce05f726679c6, type: 3}
 --- !u!1 &1216791518
 GameObject:
   m_ObjectHideFlags: 0
@@ -39976,6 +39976,7 @@ MonoBehaviour:
   CompletedEffect: {fileID: 1492074485}
   StartingNode: {fileID: 265246401}
   EndingNode: {fileID: 453903756}
+  LightPathRoot: {fileID: 0}
   m_SymbolToCompleteLevel: {fileID: 861260259}
   CompleteDelay: 3
   m_LevelBG: {fileID: 1138655227}
