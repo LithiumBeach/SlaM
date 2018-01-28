@@ -19,6 +19,7 @@ public class NorseSymbol : MonoBehaviour
 
     public Color m_DotsColor = Color.black;
     public Gradient m_LinesColorGradient;
+    public float m_DotScale = .25f;
 
     public float m_DotSpacingScale = .25f;
 
@@ -226,7 +227,7 @@ public class NorseSymbol : MonoBehaviour
                 iter.AOnActivate = OnDotActivate;
                 iter.AOnDeactivate = OnDotDeactivate;
                 iter.m_SprDot.color = m_DotsColor;
-
+                iter.transform.localScale = new Vector3(m_DotScale, m_DotScale, m_DotScale);
                 //m_Dots[x][y] = iter;
                 m_Dots.Add(iter);
             }
