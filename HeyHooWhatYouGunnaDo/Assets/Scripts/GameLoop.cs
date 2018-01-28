@@ -49,7 +49,7 @@ public class GameLoop : MonoBehaviour
 
     private void HeardTraverseNode(NodeBehaviour node)
     {
-         m_CurrentSymbol.IntersectionWith(node.m_Symbol);
+         m_CurrentSymbol.UnionWith(node.m_Symbol);
 
         if(EnergyLauncher.instance.CurrentSymbolData.IsMatchingKey(CorrectKeyFormation))
         {

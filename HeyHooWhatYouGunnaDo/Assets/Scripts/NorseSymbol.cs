@@ -62,7 +62,35 @@ public class NorseSymbol : MonoBehaviour
         }
     }
 
-    internal void IntersectionWith(NorseSymbol otherSymbol)
+    public void UnionWith(NorseSymbol otherSymbol)
+    {
+        List<NorseLine> linesToAdd = new List<NorseLine>();
+
+        for (int i = 0; i < otherSymbol.m_Lines.Count; i++)
+        {
+            //check if line already exists (bidirectionally)
+            NorseLine foundLine = m_Lines.Find(mline =>
+            ((mline.A.m_GridPositionX == otherSymbol.m_Lines[i].A.m_GridPositionX && mline.A.m_GridPositionY == otherSymbol.m_Lines[i].A.m_GridPositionY) &&
+            (mline.B.m_GridPositionX == otherSymbol.m_Lines[i].B.m_GridPositionX && mline.B.m_GridPositionY == otherSymbol.m_Lines[i].B.m_GridPositionY)) ||
+            ((mline.A.m_GridPositionX == otherSymbol.m_Lines[i].B.m_GridPositionX && mline.A.m_GridPositionY == otherSymbol.m_Lines[i].B.m_GridPositionY) &&
+            (mline.B.m_GridPositionX == otherSymbol.m_Lines[i].A.m_GridPositionX && mline.B.m_GridPositionY == otherSymbol.m_Lines[i].A.m_GridPositionY)) );
+
+            //add line if doesn't exist.
+            if (foundLine == null)
+            {
+                NorseLine nl = new NorseLine();
+                LineRenderer l = Instantiate(PrefabManager.Instance.m_Data.m_DotConnectLR.gameObject, transform).GetComponent<LineRenderer>();
+                nl.line = l;
+                nl.A = m_Dots.Find(item => item.m_GridPositionX == otherSymbol.m_Lines[i].A.m_GridPositionX && item.m_GridPositionY == otherSymbol.m_Lines[i].A.m_GridPositionY);
+                nl.A.IsActivated = true;
+                nl.B = m_Dots.Find(item => item.m_GridPositionX == otherSymbol.m_Lines[i].B.m_GridPositionX && item.m_GridPositionY == otherSymbol.m_Lines[i].B.m_GridPositionY);
+                nl.B.IsActivated = true;
+                m_Lines.Add(nl);
+            }
+        }
+    }
+
+    public void IntersectionWith(NorseSymbol otherSymbol)
     {
         List<NorseLine> linesToRemove = new List<NorseLine>();
         for (int i = 0; i < m_Lines.Count; i++)
@@ -83,6 +111,8 @@ public class NorseSymbol : MonoBehaviour
                 linesToRemove.Add(m_Lines[i]);
             }
         }
+
+        //check for IsActive on dots
         for (int i = 0; i < linesToRemove.Count; i++)
         {
             linesToRemove[i].CleanUp();
