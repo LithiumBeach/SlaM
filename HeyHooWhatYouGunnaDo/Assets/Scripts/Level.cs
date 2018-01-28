@@ -13,7 +13,7 @@ public class Level : MonoBehaviour
     private bool _completed;
     public bool LevelComplete { get { return _completed; } }
     public Transform m_LevelBG = null;
-    public float NodeDisplacement = -1;
+    private float NodeDisplacement = -1;
 
     private void Start()
     {
@@ -28,7 +28,6 @@ public class Level : MonoBehaviour
 
 
         NodeDisplacement = StartingNode.transform.position.z - m_LevelBG.transform.position.z;
-        Debug.Log(NodeDisplacement.ToString());
     }
 
     public bool CheckForWinState(NorseSymbol mySymbol) {
@@ -78,5 +77,10 @@ public class Level : MonoBehaviour
     public float GetCursorZPlacement()
     {
         return m_LevelBG.transform.position.z + NodeDisplacement;
+    }
+
+    public Quaternion GetLevelRotation()
+    {
+        return m_LevelBG.parent.rotation;
     }
 }
