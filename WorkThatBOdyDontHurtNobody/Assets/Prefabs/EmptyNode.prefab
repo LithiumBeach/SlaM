@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 23784819885414100}
   - component: {fileID: 120185760694174582}
   - component: {fileID: 114624855659647948}
+  - component: {fileID: 54387139205485070}
   m_Layer: 0
   m_Name: EmptyNode
   m_TagString: Untagged
@@ -85,6 +86,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1331862625014530}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54387139205485070
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1331862625014530}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!64 &64441820293762526
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -110,6 +126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 408ba7701deef984cb3945d48308631f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsOpen: 0
+  IsSelected: 0
 --- !u!120 &120185760694174582
 LineRenderer:
   m_ObjectHideFlags: 1
