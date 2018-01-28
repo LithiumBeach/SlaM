@@ -11,6 +11,7 @@ public class Level : MonoBehaviour
     public float CompleteDelay = 3f;
     private bool _completed;
     public Transform m_LevelBG = null;
+    public float NodeDisplacement = -1;
 
     private void Start()
     {
@@ -18,6 +19,10 @@ public class Level : MonoBehaviour
         {
             Debug.LogError("Level::Start() -- No starting node has been set for level.");
         }
+
+
+        NodeDisplacement = StartingNode.transform.position.z - m_LevelBG.transform.position.z;
+        Debug.Log(NodeDisplacement.ToString());
     }
 
     public bool CheckForWinState(NorseSymbol mySymbol) {
@@ -46,5 +51,10 @@ public class Level : MonoBehaviour
         yield return new WaitForSeconds(CompleteDelay);
         FindObjectOfType<FixedCameraRotate>().RotateToNextLevel();
         GameLoop.Instance.IncrementLevel();
+    }
+
+    public float GetCursorZPlacement()
+    {
+        return m_LevelBG.transform.position.z + NodeDisplacement;
     }
 }

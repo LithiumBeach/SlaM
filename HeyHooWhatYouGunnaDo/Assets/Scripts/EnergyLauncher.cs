@@ -9,7 +9,6 @@ public class EnergyLauncher : MonoBehaviour
     public LineRenderer _lineRenderer;
 
     private GameObject RaycastSelectObject;
-    public SymbolModel CurrentSymbolData;
     public float RotateSpeed;
     public float LaunchDelay;
     public bool StartNode;
@@ -103,31 +102,30 @@ public class EnergyLauncher : MonoBehaviour
         //  Use object already set in UpdateRaycast
         if (RaycastSelectObject != null)
         {
-            NodeBehaviour nodeObj = RaycastSelectObject.GetComponent<NodeBehaviour>();
+            NodeBehaviour newNode = RaycastSelectObject.GetComponent<NodeBehaviour>();
 
-            if (nodeObj != null)
+            if (newNode != null)
             {
-                if (nodeObj.IsCursorSelected && nodeObj.IsOpen)
+                if (newNode.IsCursorSelected && newNode.IsOpen)
                 {
-                    EnergizeNode(RaycastSelectObject);
-                    nodeObj.OnTravelTo();
+                    //  Update this NodeBehaviour
+                    NodeBehaviour currentNode = GetComponentInParent<NodeBehaviour>();
+                    currentNode.OnTravelFrom();
+
+                    SetToNode(RaycastSelectObject);
+                    newNode.OnTravelTo();
                     _launched = true;
                 }
                 else
                 {
-                    nodeObj.FlashWarningColor();
+                    newNode.FlashWarningColor();
                 }
             }
         }
     }
 
-    private void EnergizeNode(GameObject node)
+    private void SetToNode(GameObject node)
     {
-
-        //  Update this NodeBehaviour
-        NodeBehaviour nodeBehaviour = GetComponentInParent<NodeBehaviour>();
-        nodeBehaviour.OnTravelFrom();
-
         //  Parent this object to the new node
         this.transform.SetParent(node.transform);
         this.transform.localPosition = Vector3.zero;
@@ -146,9 +144,7 @@ public class EnergyLauncher : MonoBehaviour
 
     public void ResetToNode(GameObject node)
     {
-        EnergizeNode(node);
-        NodeBehaviour nodeScript = node.GetComponentInChildren<NodeBehaviour>();
-        nodeScript.OnTravelTo();
+        SetToNode(node);
     }
 
     private IEnumerator LaunchCooldown()

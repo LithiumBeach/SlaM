@@ -3,83 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SymbolModel
-{
-    public enum eKey
-    {
-        Key1,
-        Key2,
-        Key3,
-        Key4,
-        Key5,
-
-        COUNT
-    }
-    public bool[] ActiveKeys = new bool[(int)eKey.COUNT];
-
-    public enum eUpdateMethod
-    {
-        Union,
-        Exclusive,
-        Remove,
-
-        COUNT
-    }
-    public eUpdateMethod _currentMethod;
-
-    public SymbolModel()
-    {
-
-    }
-
-    private void Initialize()
-    {
-        for (int i = 0; i < (int)eKey.COUNT; ++i)
-        {
-            ActiveKeys[i] = false;
-        }
-    }
-
-    public void RandomizeActiveKeys()
-    {
-        for(int i = 0; i < (int)eKey.COUNT; ++i)
-        {
-            ActiveKeys[i] = (UnityEngine.Random.Range(0, 100) > 50);
-        }
-    }
-
-    public void RandomizeMethod()
-    {
-        _currentMethod = (eUpdateMethod)UnityEngine.Random.Range(0, (int)eUpdateMethod.COUNT);
-    }
-
-    public bool IsMatchingKey(bool[] correctKey)
-    {
-        for(int i = 0; i < (int)eKey.COUNT; ++i)
-        {
-            if(ActiveKeys[i] != correctKey[i])
-            {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    public string GetActiveKeysDebug()
-    {
-        string debugString = "";
-        for(int i = 0; i < (int)eKey.COUNT; ++i)
-        {
-            if(ActiveKeys[i])
-                debugString += i.ToString() + ",";
-        }
-        return debugString;
-    }
-
-
-}
-
 public enum EBoolOperator
 {
     Union,
@@ -95,8 +18,7 @@ public class NodeBehaviour : MonoBehaviour
         Idle,
         Flashing
     }
-
-    public SymbolModel _keyData;
+    
     public bool IsOpen;
     public bool IsCursorSelected;
     public bool IsRaycastSelected;
@@ -119,11 +41,7 @@ public class NodeBehaviour : MonoBehaviour
     void Start ()
     {
         AllNodes.Add(this);
-
-        _keyData = new SymbolModel();
-        _keyData.RandomizeActiveKeys();
-        _keyData.RandomizeMethod();
-
+        
         Debug.Assert(m_Symbol != null);
 
         ResetNode();
@@ -163,12 +81,12 @@ public class NodeBehaviour : MonoBehaviour
     public void OnTravelTo()
     {
         IsOpen = false;
-        if(OnNodeTraversed != null)
+        ChangeCurrentColor(Color.red);
+
+        if (OnNodeTraversed != null)
         {
             OnNodeTraversed(this);
         }
-
-        ChangeCurrentColor(Color.red);
     }
 
     private void ResetNode()
