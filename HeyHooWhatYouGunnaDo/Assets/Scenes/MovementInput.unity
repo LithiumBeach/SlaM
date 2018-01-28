@@ -285,6 +285,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 54387139205485070, guid: e10b0bf213681024da4e69345474db1d,
+        type: 2}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e10b0bf213681024da4e69345474db1d, type: 2}
   m_IsPrefabParent: 0
@@ -306,7 +311,7 @@ GameObject:
   - component: {fileID: 471327438}
   - component: {fileID: 471327442}
   - component: {fileID: 471327437}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cursor
   m_TagString: Cursor
   m_Icon: {fileID: 0}
@@ -403,8 +408,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.22824593
-  m_Center: {x: -0.0038386302, y: 0, z: 0}
+  m_Radius: 0.27569398
+  m_Center: {x: -0.0006756242, y: 0, z: 0}
 --- !u!1001 &603173032
 Prefab:
   m_ObjectHideFlags: 0

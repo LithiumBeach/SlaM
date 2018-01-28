@@ -118,7 +118,7 @@ public class SymbolModel
 
 }
 
-[RequireComponent(typeof(LineRenderer), typeof(MeshRenderer), typeof(MeshCollider))]
+[RequireComponent(typeof(MeshRenderer))]
 public class NodeBehaviour : MonoBehaviour
 {
     public SymbolModel _keyData;
