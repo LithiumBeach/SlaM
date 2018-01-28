@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class GameLoop : SingletonBehavior<GameLoop>
 {
-    public bool[] CorrectKeyFormation = new bool[(int)SymbolModel.eKey.COUNT];
     public Level CurrentLevel;
     public NorseSymbol m_CurrentSymbol;
 
@@ -19,7 +18,6 @@ public class GameLoop : SingletonBehavior<GameLoop>
     {
         Initialize();
         RegisterEvents();
-        RandomizeCorrectKey();
     }
 
     // Update is called once per frame
@@ -61,14 +59,6 @@ public class GameLoop : SingletonBehavior<GameLoop>
         NodeBehaviour.OnNodeTraversed += HeardTraverseNode;
     }
 
-    private void RandomizeCorrectKey()
-    {
-        for (int i = 0; i < (int)SymbolModel.eKey.COUNT; ++i)
-        {
-            CorrectKeyFormation[i] = (Random.Range(0, 100) > 50);
-        }
-    }
-
     private void HeardTraverseNode(NodeBehaviour node)
     {
         m_history.Push(node);
@@ -94,7 +84,6 @@ public class GameLoop : SingletonBehavior<GameLoop>
                 }
                 else
                 {
-                    Debug.Log("Hard reset hey");
                     hardReset = true;
                 }
                 break;

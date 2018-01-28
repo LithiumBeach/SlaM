@@ -30,7 +30,6 @@ public class EnergyLauncher : MonoBehaviour
 
     private void Start()
     {
-        //if (StartNode)
             Initialize();
     }
 
