@@ -14,6 +14,8 @@ public class GameLoop : SingletonBehavior<GameLoop>
 
     private Stack<NodeBehaviour> m_history = new Stack<NodeBehaviour>();
 
+    public Action AOnChangeLevel;
+
     // Use this for initialization
     void Start()
     {
@@ -53,6 +55,10 @@ public class GameLoop : SingletonBehavior<GameLoop>
         {
             _currentLevelIndex++;
             CurrentLevel = Levels[_currentLevelIndex];
+            if (AOnChangeLevel != null)
+            {
+                AOnChangeLevel();
+            }
         }
     }
 
