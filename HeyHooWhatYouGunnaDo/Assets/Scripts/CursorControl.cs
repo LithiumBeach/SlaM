@@ -8,9 +8,11 @@ public class CursorControl : MonoBehaviour
 
     public float CursorSpeed = .4f;
 
+    private Transform bullshit;
+
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         }
@@ -19,22 +21,43 @@ public class CursorControl : MonoBehaviour
     public Vector3 CursorPosition { get { return transform.position; } }
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
+        bullshit = Instantiate(new GameObject()).transform;
+        bullshit.name = "cursorRoot";
+        bullshit.transform.position = GameLoop.Instance.CurrentLevel.m_LevelBG.transform.position;
+        bullshit.transform.rotation = GameLoop.Instance.CurrentLevel.m_LevelBG.transform.rotation;
+        transform.parent = bullshit;
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.identity;
+        transform.localScale = Vector3.one;
+        GameLoop.Instance.AOnChangeLevel += OnChangeLevel;
+    }
+
+    private void OnChangeLevel()
     {
-        Vector3 positionUpdate = transform.position;
+        bullshit.transform.position = GameLoop.Instance.CurrentLevel.m_LevelBG.transform.position;
+        bullshit.transform.rotation = GameLoop.Instance.CurrentLevel.m_LevelBG.transform.rotation;
+        transform.parent = bullshit;
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.identity;
+        transform.localScale = Vector3.one;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+        Vector3 positionUpdate = transform.localPosition;
         positionUpdate.x += CursorSpeed * Input.GetAxis("Horizontal");
         positionUpdate.y += CursorSpeed * Input.GetAxis("Vertical");
-        positionUpdate.z = GameLoop.Instance.CurrentLevel.GetCursorZPlacement();
-        transform.position = positionUpdate;
+        positionUpdate.z = -1f;// Camera.main.transform.TransformPoint(GameLoop.Instance.CurrentLevel.m_LevelBG.transform.position).z;
+
+        transform.localPosition = positionUpdate;
+        //transform.position = positionUpdate;
 
         ClampPosition();
-	}
+    }
 
     void ClampPosition()
     {
