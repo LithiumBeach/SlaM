@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 222827621547260684}
   - component: {fileID: 23745221089615570}
   - component: {fileID: 33455204365833678}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LaunchDirector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,8 +42,7 @@ GameObject:
   - component: {fileID: 23358461447566456}
   - component: {fileID: 114744321120082322}
   - component: {fileID: 120696042842791614}
-  - component: {fileID: 114280635409280516}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: StartNode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,17 +159,6 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114280635409280516
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1942201759370892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 408ba7701deef984cb3945d48308631f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114744321120082322
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -189,6 +177,7 @@ MonoBehaviour:
   LaunchDistance: 50
   LaunchDelay: 0.5
   StartNode: 1
+  DBG_ControlWithMouse: 1
 --- !u!120 &120696042842791614
 LineRenderer:
   m_ObjectHideFlags: 1

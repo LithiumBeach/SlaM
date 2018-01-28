@@ -82,6 +82,8 @@ public class NorseDot : MonoBehaviour
 
     void OnGUI()
     {
+        if (Application.isPlaying) { return; }
+
         Event e = Event.current;
         if (e.type == EventType.Layout || e.type == EventType.Repaint)
         {
