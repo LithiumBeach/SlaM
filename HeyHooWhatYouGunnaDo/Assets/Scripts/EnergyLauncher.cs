@@ -6,14 +6,10 @@ using UnityEngine;
 public class EnergyLauncher : MonoBehaviour
 {
     public static EnergyLauncher instance = null;
-
-    // public GameObject LaunchDirector;
+    
     private GameObject RaycastSelectObject;
-    public Material FocusMaterial;
-    public Material UnfocusMaterial;
     public SymbolModel CurrentSymbolData;
     public float RotateSpeed;
-   // public float LaunchDistance;
     public float LaunchDelay;
     public bool StartNode;
     public bool DBG_ControlWithMouse = true;
@@ -38,11 +34,10 @@ public class EnergyLauncher : MonoBehaviour
     }
 
     public void Initialize() {
-        _lineRenderer = GetComponentInParent<LineRenderer>();
+        _lineRenderer = GetComponent<LineRenderer>();
         _lineRenderer.positionCount = 2;
         _lineRenderer.SetPositions(new Vector3[] { transform.position, CursorControl.instance.CursorPosition});
         _meshRenderer = GetComponentInParent<MeshRenderer>();
-        _meshRenderer.material = FocusMaterial;
         CurrentSymbolData = new SymbolModel();
     }
 
@@ -57,7 +52,6 @@ public class EnergyLauncher : MonoBehaviour
             Launch();
         }
     }
-
 
     private void UpdateRaycast()
     {
@@ -76,32 +70,17 @@ public class EnergyLauncher : MonoBehaviour
         }
         else
         {
+            //  Reset reference so linerenderer defers to CursorPosition
             RaycastSelectObject = null;
         }
     }
 
     protected virtual void UpdateLinePosition()
     {
-        //      if(!DBG_ControlWithMouse)
-        //      {
-        //          //float axisFactor = Input.GetAxis("Horizontal");
-        //
-        //          //LaunchDirector.transform.RotateAround(transform.position, Vector3.forward, axisFactor * -RotateSpeed);
-        //          _lineRenderer.SetPosition(1, CursorControl.instance.CursorPosition);
-        //      }
-        //else
-        {
-            _lineRenderer.SetPosition(0, transform.position);
-            // Vector3 targetPos = CursorControl.instance.CursorPosition;// Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            // targetPos.z = 0;
-            // Vector3 endPoint = transform.position + (targetPos - transform.position).normalized * 2f;
-            // endPoint.z = 0;
-            Vector3 endPosition = RaycastSelectObject == null ? CursorControl.instance.CursorPosition : RaycastSelectObject.transform.position;
+        Vector3 endPosition = RaycastSelectObject == null ? CursorControl.instance.CursorPosition : RaycastSelectObject.transform.position;
 
-            _lineRenderer.SetPosition(1, endPosition);
-
-            //        LaunchDirector.transform.position = endPoint;
-        }
+        _lineRenderer.SetPosition(0, transform.position);
+        _lineRenderer.SetPosition(1, endPosition);
     }
 
     private void Launch()
@@ -109,10 +88,10 @@ public class EnergyLauncher : MonoBehaviour
         _launched = true;
         var launchDirection = CursorControl.instance.CursorPosition - transform.position;
 
-        //var ray = new Ray(transform.position, launchDirection);
         bool resetLaunch = true;
-        //RaycastHit hit;
-        if(RaycastSelectObject != null)//Physics.Raycast(ray, out hit, LaunchDistance))
+        
+        //  Use object already set in UpdateRaycast
+        if(RaycastSelectObject != null)
         {
             NodeBehaviour nodeObj = RaycastSelectObject.GetComponent<NodeBehaviour>();
 
@@ -144,48 +123,19 @@ public class EnergyLauncher : MonoBehaviour
         this.transform.SetParent(node.transform);
         this.transform.localPosition = Vector3.zero;
 
-    //    _lineRenderer.positionCount = 0;
-
         //  Update this NodeBehaviour
         NodeBehaviour nodeBehaviour = GetComponentInParent<NodeBehaviour>();
         nodeBehaviour.OnTravelFrom();
 
-        //Energize the next node
-        Energize();
-
-        {
-            ////Copy the EnergyLauncher component to next node
-            //System.Type EnergyLauncher = this.GetType();
-            //var nextNodeEnergyLauncher = node.AddComponent(EnergyLauncher) as EnergyLauncher;
-            //System.Reflection.FieldInfo[] fields = EnergyLauncher.GetFields();
-            //foreach (var field in fields) {
-            //    field.SetValue(nextNodeEnergyLauncher, field.GetValue(this));
-            //}
-
-            ////Reposition the LaunchDirector relative to next node
-            //var directorDistance = (transform.position - LaunchDirector.transform.position).magnitude;
-            //var translateDirection = (node.transform.position - LaunchDirector.transform.position).normalized;
-            //LaunchDirector.transform.position = node.transform.position + (translateDirection * directorDistance);
-
-            ////Set material to unfocused
-            //_meshRenderer.material = UnfocusMaterial;
-
-            ////  Update this NodeBehaviour
-            //NodeBehaviour nodeBehaviour = this.GetComponent<NodeBehaviour>();
-            //nodeBehaviour.OnTravelFrom();
-
-            ////Energize the next node and destroy this energyLauncher
-            //nextNodeEnergyLauncher.Energize(LaunchDirector);
-            //StartCoroutine(SelfDestruct());
-        }
+        //Reset and set a cooldown
+        Recharge();
     }
 
-    public void Energize()
+    public void Recharge()
     {
         StartNode = false;
         Launched = true;
         Initialize();
-        _meshRenderer.material = FocusMaterial;
         StartCoroutine(LaunchCooldown());
     }
 
@@ -196,7 +146,6 @@ public class EnergyLauncher : MonoBehaviour
 
     private IEnumerator SelfDestruct(){
         yield return new WaitForSeconds(0.01f);
-   //     _lineRenderer.positionCount = 0;
         Destroy(this);
     }
 }
