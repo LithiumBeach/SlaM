@@ -8,15 +8,13 @@ public class FixedCameraRotate : MonoBehaviour {
     public float RotateCoolDown = 1f;
     public float RotateTime = 1f;
     private bool _cooldown;
-	
-	void Update () {
-        if(Input.GetKeyDown(KeyCode.Space) && !_cooldown) {
-            _cooldown = true;
-            Rotate();
-            StartCoroutine(Rotate());
-            StartCoroutine(WaitForCooldown());
-        }
-	}
+
+    public void RotateToNextLevel(){
+        _cooldown = true;
+        Rotate();
+        StartCoroutine(Rotate());
+        StartCoroutine(WaitForCooldown());
+    }
 
     private IEnumerator Rotate() {
         var elapsedTime = 0f;
