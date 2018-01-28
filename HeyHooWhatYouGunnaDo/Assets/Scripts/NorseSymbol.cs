@@ -135,6 +135,12 @@ public class NorseSymbol : MonoBehaviour
 
     }
 
+    public void ComplementWith(NorseSymbol otherSymbol)
+    {// TODO: stub
+        throw new NotImplementedException();
+    }
+
+
     private void OnDotDeactivate(NorseDot dot)
     {
         while (m_ActivatedDotStack.Count > 0)

@@ -119,6 +119,13 @@ public class SymbolModel
 
 }
 
+public enum EBoolOperator
+{
+    Union,
+    Intersection,
+    Complement
+}
+
 public class NodeBehaviour : MonoBehaviour
 {
     private enum eNodeActivity
@@ -144,8 +151,10 @@ public class NodeBehaviour : MonoBehaviour
 
     private static List<NodeBehaviour> AllNodes = new List<NodeBehaviour>();
 
-	// Use this for initialization
-	void Start ()
+    public EBoolOperator m_Operator = EBoolOperator.Union;
+
+    // Use this for initialization
+    void Start ()
     {
         AllNodes.Add(this);
 
