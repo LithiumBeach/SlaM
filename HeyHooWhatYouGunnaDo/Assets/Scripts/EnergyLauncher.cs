@@ -63,14 +63,25 @@ public class EnergyLauncher : MonoBehaviour
         if (Physics.Raycast(ray, out hit, launchDistance))
         {
             NodeBehaviour nodeObj = hit.transform.GetComponent<NodeBehaviour>();
-            if (nodeObj != null)
+            if (nodeObj != null && nodeObj.gameObject != RaycastSelectObject)
             {
+                if(RaycastSelectObject != null)
+                {
+                    RaycastSelectObject.GetComponent<NodeBehaviour>().SetAsRaycastHit(false);
+                }
+
                 RaycastSelectObject = nodeObj.gameObject;
+                RaycastSelectObject.GetComponent<NodeBehaviour>().SetAsRaycastHit(true);
             }
         }
         else
         {
             //  Reset reference so linerenderer defers to CursorPosition
+            if (RaycastSelectObject != null)
+            {
+                RaycastSelectObject.GetComponent<NodeBehaviour>().SetAsRaycastHit(false);
+            }
+
             RaycastSelectObject = null;
         }
     }
@@ -85,9 +96,7 @@ public class EnergyLauncher : MonoBehaviour
 
     private void Launch()
     {
-        _launched = true;
-        var launchDirection = CursorControl.instance.CursorPosition - transform.position;
-
+        _launched = false;
         bool resetLaunch = true;
         
         //  Use object already set in UpdateRaycast
@@ -97,23 +106,18 @@ public class EnergyLauncher : MonoBehaviour
 
             if (nodeObj != null)
             {
-                if(nodeObj.IsSelected && nodeObj.IsOpen)
+                if(nodeObj.IsCursorSelected && nodeObj.IsOpen)
                 {
                     EnergizeNode(RaycastSelectObject);
                     CurrentSymbolData.ProcessUpdate(nodeObj._keyData);
                     nodeObj.OnTravelTo();
-                    resetLaunch = false;
+                    _launched = true;
                 }
                 else 
                 {
                     nodeObj.FlashWarningColor();
                 }
             }
-        }
-        
-        if(resetLaunch)
-        {
-            _launched = false;
         }
     }
 

@@ -118,16 +118,24 @@ public class SymbolModel
 
 }
 
-[RequireComponent(typeof(MeshRenderer))]
 public class NodeBehaviour : MonoBehaviour
 {
+    private enum eNodeActivity
+    {
+        Idle,
+        Flashing
+    }
+
     public SymbolModel _keyData;
     public bool IsOpen;
-    public bool IsSelected;
+    public bool IsCursorSelected;
+    public bool IsRaycastSelected;
     public float WarningColorTime = 2f;
+    private Color _blockingColor = Color.cyan;
     private Color _warningColor = Color.magenta;
     private Color _selectColor = Color.yellow;
     private Color _currentColor;
+    private eNodeActivity _currentActivity = eNodeActivity.Idle;
 
     public delegate void NodeTraversed();
     public static event NodeTraversed OnNodeTraversed;
@@ -149,8 +157,27 @@ public class NodeBehaviour : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-		
+        if(_currentActivity == eNodeActivity.Idle)
+        {
+            UpdateIdleColor();
+        }
 	}
+
+    void UpdateIdleColor()
+    {
+        if(IsRaycastSelected && !IsCursorSelected)
+        {
+            SetBlockColor();
+        }
+        else if(IsCursorSelected && IsOpen)
+        {
+            SetSelectColor();
+        }
+        else
+        {
+            SetCurrentColor();
+        }
+    }
 
     public void OnTravelFrom()
     {
@@ -166,22 +193,20 @@ public class NodeBehaviour : MonoBehaviour
         }
 
         ChangeCurrentColor(Color.red);
-        SetCurrentColor();
     }
 
     private void ResetNode()
     {
         IsOpen = true;
-        IsSelected = false;
+        IsCursorSelected = false;
+        IsRaycastSelected = false;
 
         ChangeCurrentColor(Color.green);
-        SetCurrentColor();
     }
 
     public void ChangeCurrentColor(Color newColor)
     {
         _currentColor = newColor;
-        SetCurrentColor();
     }
 
     private void SetCurrentColor()
@@ -196,8 +221,20 @@ public class NodeBehaviour : MonoBehaviour
         renderer.material.color = _selectColor;
     }
 
+    public void SetBlockColor()
+    {
+        Renderer renderer = this.GetComponent<Renderer>();
+        renderer.material.color = _blockingColor;
+    }
+
+    public void SetAsRaycastHit(bool isHit)
+    {
+        IsRaycastSelected = isHit;    
+    }
+
     public void FlashWarningColor()
     {
+        _currentActivity = eNodeActivity.Flashing;
         StartCoroutine(ShowWarningColor());
     }
 
@@ -210,9 +247,9 @@ public class NodeBehaviour : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         renderer.material.color = _warningColor;
         yield return new WaitForSeconds(0.1f);
-        renderer.material.color = _currentColor;
+        
+        _currentActivity = eNodeActivity.Idle;
     }
-
 
     public static bool AllNodesClosed()
     {
@@ -238,8 +275,7 @@ public class NodeBehaviour : MonoBehaviour
     {
         if(other.CompareTag("Cursor") && IsOpen)
         {
-            IsSelected = true;
-            SetSelectColor();
+            IsCursorSelected = true;
         }
     }
 
@@ -247,8 +283,7 @@ public class NodeBehaviour : MonoBehaviour
     {
         if(other.CompareTag("Cursor") && IsOpen)
         {
-            IsSelected = true;
-            SetSelectColor();
+            IsCursorSelected = true;
         }
     }
 
@@ -256,8 +291,7 @@ public class NodeBehaviour : MonoBehaviour
     {
         if(other.CompareTag("Cursor"))
         {
-            IsSelected = false;
-            SetCurrentColor();
+            IsCursorSelected = false;
         }
     }
 
