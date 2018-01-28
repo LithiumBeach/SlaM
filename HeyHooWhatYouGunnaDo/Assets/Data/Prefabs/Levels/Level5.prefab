@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 4475456902231030}
   - component: {fileID: 114042869456039720}
   m_Layer: 0
-  m_Name: Level5 1
+  m_Name: Level5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5114,9 +5114,9 @@ MonoBehaviour:
   EndingNode: {fileID: 1413699922643826}
   LightPathRoot: {fileID: 0}
   m_SymbolToCompleteLevel: {fileID: 114165568655260988}
-  CompleteDelay: 3
+  RotationDelay: 1.8
+  LevelSwitchDelay: 0.8
   m_LevelBG: {fileID: 4500607717683096}
-  NodeDisplacement: -1
 --- !u!114 &114056593681066780
 MonoBehaviour:
   m_ObjectHideFlags: 1

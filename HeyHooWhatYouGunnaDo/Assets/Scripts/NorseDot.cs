@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
-#if UNITY_EDITOR
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
 #endif
 
 [System.Serializable]
@@ -79,7 +79,7 @@ public class NorseDot : MonoBehaviour
         }
     }
 
-
+#if UNITY_EDITOR
     void OnGUI()
     {
         if (Application.isPlaying) { return; }
@@ -134,4 +134,5 @@ public class NorseDot : MonoBehaviour
             }
         }
     }
+#endif
 }

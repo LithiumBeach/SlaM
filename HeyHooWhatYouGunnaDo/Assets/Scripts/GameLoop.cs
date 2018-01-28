@@ -137,7 +137,7 @@ public class GameLoop : SingletonBehavior<GameLoop>
 
     private void OnCorrectSymbol()
     {
-        Debug.Log("Game Won!");
+        m_YourSymbol.ReInitializeDots();
         CurrentLevel.CompleteLevel();
     }
 
