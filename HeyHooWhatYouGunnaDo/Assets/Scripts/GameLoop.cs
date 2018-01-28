@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameLoop : SingletonBehavior<GameLoop>
 {
     public Level CurrentLevel;
-    public NorseSymbol m_CurrentSymbol;
+    public NorseSymbol m_YourSymbol;
 
     public Level[] Levels;
     private int _currentLevelIndex;
@@ -42,7 +42,7 @@ public class GameLoop : SingletonBehavior<GameLoop>
         }
 
         NodeBehaviour nb = CurrentLevel.StartingNode.GetComponentInChildren<NodeBehaviour>();
-        m_CurrentSymbol.UnionWith(nb.m_Symbol);
+        m_YourSymbol.UnionWith(nb.m_Symbol);
     }
 
     public void IncrementLevel()
@@ -67,18 +67,18 @@ public class GameLoop : SingletonBehavior<GameLoop>
         switch (node.m_Operator)
         {
             case EBoolOperator.Union:
-                m_CurrentSymbol.UnionWith(node.m_Symbol);
+                m_YourSymbol.UnionWith(node.m_Symbol);
                 break;
             case EBoolOperator.Intersection:
-                m_CurrentSymbol.IntersectionWith(node.m_Symbol);
+                m_YourSymbol.IntersectionWith(node.m_Symbol);
                 break;
             case EBoolOperator.Complement:
 
-                m_CurrentSymbol.UnionWith(node.m_Symbol);
+                m_YourSymbol.UnionWith(node.m_Symbol);
                 break;
             case EBoolOperator.EndComparison:
                 m_history.Pop();
-                if(m_CurrentSymbol.IsEquivalentSymbol(node.m_Symbol))
+                if (m_YourSymbol.IsEquivalentSymbol(CurrentLevel.m_SymbolToCompleteLevel))
                 {
                     OnCorrectSymbol();
                 }
@@ -111,9 +111,9 @@ public class GameLoop : SingletonBehavior<GameLoop>
             CurrentLevel.ResetLevel();
 
         //  Intersect
-        m_CurrentSymbol.IntersectionWith(m_CurrentSymbol);
+        m_YourSymbol.IntersectionWith(m_YourSymbol);
         //  Unionize
-        m_CurrentSymbol.UnionWith(CurrentLevel.StartingNode.GetComponentInChildren<NodeBehaviour>().m_Symbol);
+        m_YourSymbol.UnionWith(CurrentLevel.StartingNode.GetComponentInChildren<NodeBehaviour>().m_Symbol);
     }
 
     private void PopThroughHistory()
@@ -125,10 +125,10 @@ public class GameLoop : SingletonBehavior<GameLoop>
             switch (node.m_Operator)
             {
                 case EBoolOperator.Union:
-                    m_CurrentSymbol.UnionWith(node.m_Symbol);
+                    m_YourSymbol.UnionWith(node.m_Symbol);
                     break;
                 case EBoolOperator.Intersection:
-                    m_CurrentSymbol.IntersectionWith(node.m_Symbol);
+                    m_YourSymbol.IntersectionWith(node.m_Symbol);
                     break;
                 case EBoolOperator.Complement:
                     break;

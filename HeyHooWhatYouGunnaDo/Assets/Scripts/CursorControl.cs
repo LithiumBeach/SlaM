@@ -30,7 +30,7 @@ public class CursorControl : MonoBehaviour
         Vector3 positionUpdate = transform.position;
         positionUpdate.x += CursorSpeed * Input.GetAxis("Horizontal");
         positionUpdate.y += CursorSpeed * Input.GetAxis("Vertical");
-        positionUpdate.z = GameLoop.Instance.CurrentLevel.transform.position.z - 0.5f;
+        positionUpdate.z = GameLoop.Instance.CurrentLevel.m_LevelBG.position.z - 0.5f;
         transform.position = positionUpdate;
 
         ClampPosition();

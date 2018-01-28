@@ -7,8 +7,10 @@ public class Level : MonoBehaviour
     public GameObject CompletedEffect;
     public GameObject StartingNode;
     public GameObject EndingNode;
+    public NorseSymbol m_SymbolToCompleteLevel;
     public float CompleteDelay = 3f;
     private bool _completed;
+    public Transform m_LevelBG = null;
 
     private void Start()
     {
