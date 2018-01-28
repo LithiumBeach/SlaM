@@ -115,6 +115,9 @@ public class EnergyLauncher : MonoBehaviour
                     SetToNode(RaycastSelectObject);
                     newNode.OnTravelTo();
                     _launched = true;
+                    
+                    GameLoop.Instance.CurrentLevel.PushLightLine(currentNode.transform, newNode.transform);
+                  
                 }
                 else
                 {

@@ -91,7 +91,7 @@ public class GameLoop : SingletonBehavior<GameLoop>
                 break;
         }
 
-        if (NodeBehaviour.AllNodesClosed() || hardReset)
+        if ((NodeBehaviour.AllNodesClosed() && !CurrentLevel.LevelComplete) || hardReset)
         {
             ResetGame();
         }
