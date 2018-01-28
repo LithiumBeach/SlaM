@@ -86,7 +86,8 @@ public class NodeBehaviour : MonoBehaviour
         {
             OnNodeTraversed(this);
             ChangeCurrentColor(Color.grey);
-            SoundManager.Instance.PlayAudio((int)SoundManager.AudioClipKeys.Select);
+            if(m_Operator != EBoolOperator.EndComparison)
+                SoundManager.Instance.PlayAudio((int)SoundManager.AudioClipKeys.Select);
             var ps = GetComponentInChildren<ParticleSystem>();
             if (ps)
                 ps.Play();

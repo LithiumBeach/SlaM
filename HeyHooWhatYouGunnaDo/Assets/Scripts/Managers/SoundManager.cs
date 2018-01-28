@@ -25,6 +25,8 @@ public class SoundManager : SingletonBehavior<SoundManager> {
             return;
         }
 
+        DynamicSource.Stop();
+        Debug.Log(string.Format("Playing clip {0}", (AudioClipKeys)clipKey));
         DynamicSource.clip = AudioClips[clipKey];
         DynamicSource.Play();
         
