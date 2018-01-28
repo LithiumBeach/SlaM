@@ -3,16 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+[ExecuteInEditMode]
 public class NorseSymbol : MonoBehaviour
 {
     public int dotsWidth = 3;
     public int dotsHeight = 4;
 
-    [HideInInspector]
-    public NorseDot[,] m_Dots;// = new NorseDot[3, 4](Instantiate(PrefabManager.Instance.m_Data.m_NorseDot.gameObject).GetComponent<NorseDot>());
+    private NorseDot[,] m_Dots;
 
     private Stack<NorseDot> m_ActivatedDotStack = new Stack<NorseDot>();
-    public List<NorseLine> m_Lines = new List<NorseLine>();
+    [SerializeField]
+    private List<NorseLine> m_Lines = new List<NorseLine>();
 
     void Awake()
     {
@@ -25,6 +27,11 @@ public class NorseSymbol : MonoBehaviour
         dot.IsActivated = true;
         if (prevDot != null)
         {
+            if (dot.m_GridPositionX == prevDot.m_GridPositionX && dot.m_GridPositionY == prevDot.m_GridPositionY)
+            {
+                return;
+            }
+
             NorseLine nlCheck = m_Lines.Find(
                 item => ((item.A.m_GridPositionX == dot.m_GridPositionX && item.A.m_GridPositionY == dot.m_GridPositionY) &&
                          (item.B.m_GridPositionX == prevDot.m_GridPositionX && item.B.m_GridPositionY == prevDot.m_GridPositionY)));

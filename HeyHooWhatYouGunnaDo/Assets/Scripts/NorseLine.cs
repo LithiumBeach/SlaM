@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+[ExecuteInEditMode]
 public class NorseLine
 {
     private NorseDot m_A;
