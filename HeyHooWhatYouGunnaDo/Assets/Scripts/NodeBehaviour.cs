@@ -88,6 +88,9 @@ public enum EBoolOperator
     EndComparison
 }
 
+#if UNITY_EDITOR
+[UnityEditor.CanEditMultipleObjects]
+#endif
 public class NodeBehaviour : MonoBehaviour
 {
     private enum eNodeActivity

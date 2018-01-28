@@ -8,6 +8,9 @@ using UnityEngine;
 
 [System.Serializable]
 [ExecuteInEditMode]
+#if UNITY_EDITOR
+[UnityEditor.CanEditMultipleObjects]
+#endif
 public class NorseDot : MonoBehaviour
 {
     public SpriteRenderer m_SprDot;

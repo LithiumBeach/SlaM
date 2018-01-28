@@ -5,6 +5,9 @@ using UnityEngine;
 
 [System.Serializable]
 [ExecuteInEditMode]
+#if UNITY_EDITOR
+[UnityEditor.CanEditMultipleObjects]
+#endif
 public class NorseSymbol : MonoBehaviour
 {
     public int dotsWidth = 3;
@@ -14,7 +17,7 @@ public class NorseSymbol : MonoBehaviour
     [SerializeField]
     private List<NorseDot> m_ActivatedDotStack = new List<NorseDot>();
     [SerializeField]
-    private List<NorseLine> m_Lines = new List<NorseLine>();
+    public List<NorseLine> m_Lines = new List<NorseLine>();
 
     public float m_DotSpacingScale = .25f;
 
