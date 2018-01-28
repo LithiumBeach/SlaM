@@ -75,17 +75,22 @@ public class NodeBehaviour : MonoBehaviour
     public void OnTravelFrom()
     {
         IsOpen = false;
-        ChangeCurrentColor(Color.red);
+        ChangeCurrentColor(Color.grey);
     }
 
     public void OnTravelTo()
     {
         IsOpen = false;
-        ChangeCurrentColor(Color.red);
 
         if (OnNodeTraversed != null)
         {
             OnNodeTraversed(this);
+            ChangeCurrentColor(Color.grey);
+            SoundManager.Instance.PlayAudio((int)SoundManager.AudioClipKeys.Select);
+            var ps = GetComponentInChildren<ParticleSystem>();
+            if (ps)
+                ps.Play();
+
         }
     }
 
@@ -95,7 +100,7 @@ public class NodeBehaviour : MonoBehaviour
         IsCursorSelected = false;
         IsRaycastSelected = false;
 
-        ChangeCurrentColor(Color.green);
+        ChangeCurrentColor(Color.white);
     }
 
     public void ChangeCurrentColor(Color newColor)
