@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 212526292082575548}
   - component: {fileID: 120756562859007122}
   - component: {fileID: 135580059798917408}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: dot (1 ,3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 212660458118714646}
   - component: {fileID: 120386048281956458}
   - component: {fileID: 135289442444182956}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: dot (2 ,1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 212526270446596378}
   - component: {fileID: 120873662502274830}
   - component: {fileID: 135065640553415320}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: dot (2 ,0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   - component: {fileID: 212410838205444424}
   - component: {fileID: 120406442331279990}
   - component: {fileID: 135786170533836870}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: dot (2 ,2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 212879959831891942}
   - component: {fileID: 120776821024660316}
   - component: {fileID: 135563554832442278}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: dot (1 ,1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 212437951497104044}
   - component: {fileID: 120252006506534552}
   - component: {fileID: 135401426875114584}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: dot (0 ,1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 212395352203301826}
   - component: {fileID: 120942233722833206}
   - component: {fileID: 135001254469390674}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: dot (0 ,2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 212795361308987228}
   - component: {fileID: 120425724464901220}
   - component: {fileID: 135900957371583844}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: dot (0 ,0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 212138689927822138}
   - component: {fileID: 120792522929250194}
   - component: {fileID: 135272993702751136}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: dot (1 ,2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 212016762214541676}
   - component: {fileID: 120271755444167826}
   - component: {fileID: 135642911895565972}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: dot (1 ,0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4239249001492192}
   - component: {fileID: 114998963639015684}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NorseSymbol_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 212339086535853490}
   - component: {fileID: 120135431363459270}
   - component: {fileID: 135440419737432022}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: dot (2 ,3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 212406385775371662}
   - component: {fileID: 120382242848475434}
   - component: {fileID: 135934292214563730}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: dot (0 ,3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -629,7 +629,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dotsWidth: 3
   dotsHeight: 4
+  m_Dots: []
+  m_ActivatedDotStack: []
   m_Lines: []
+  m_DotSpacingScale: 0.25
 --- !u!120 &120135431363459270
 LineRenderer:
   m_ObjectHideFlags: 1

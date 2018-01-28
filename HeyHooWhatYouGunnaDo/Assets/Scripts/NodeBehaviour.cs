@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -43,13 +44,13 @@ public class SymbolModel
     {
         for(int i = 0; i < (int)eKey.COUNT; ++i)
         {
-            ActiveKeys[i] = (Random.Range(0, 100) > 50);
+            ActiveKeys[i] = (UnityEngine.Random.Range(0, 100) > 50);
         }
     }
 
     public void RandomizeMethod()
     {
-        _currentMethod = (eUpdateMethod)Random.Range(0, (int)eUpdateMethod.COUNT);
+        _currentMethod = (eUpdateMethod)UnityEngine.Random.Range(0, (int)eUpdateMethod.COUNT);
     }
 
     //  I don't like using ref too much, so a SymbolModel obj will update itself based on information from another SymbolModel obj... I'm so sorry
@@ -131,14 +132,20 @@ public class NodeBehaviour : MonoBehaviour
     public bool IsCursorSelected;
     public bool IsRaycastSelected;
     public float WarningColorTime = 2f;
+<<<<<<< HEAD
     private Color _blockingColor = Color.cyan;
     private Color _warningColor = Color.magenta;
     private Color _selectColor = Color.yellow;
+=======
+    public Color _warningColor = Color.magenta;
+    public Color _selectColor = Color.yellow;
+    public NorseSymbol m_Symbol = null;
+>>>>>>> e86165b06727f4713c67f8ea03b4f80114150d53
     private Color _currentColor;
     private eNodeActivity _currentActivity = eNodeActivity.Idle;
 
     public delegate void NodeTraversed();
-    public static event NodeTraversed OnNodeTraversed;
+    public static Action<NodeBehaviour> OnNodeTraversed;
 
     private static List<NodeBehaviour> AllNodes = new List<NodeBehaviour>();
 
@@ -150,6 +157,8 @@ public class NodeBehaviour : MonoBehaviour
         _keyData = new SymbolModel();
         _keyData.RandomizeActiveKeys();
         _keyData.RandomizeMethod();
+
+        Debug.Assert(m_Symbol != null);
 
         ResetNode();
 	}
@@ -189,7 +198,7 @@ public class NodeBehaviour : MonoBehaviour
         IsOpen = false;
         if(OnNodeTraversed != null)
         {
-            OnNodeTraversed();
+            OnNodeTraversed(this);
         }
 
         ChangeCurrentColor(Color.red);

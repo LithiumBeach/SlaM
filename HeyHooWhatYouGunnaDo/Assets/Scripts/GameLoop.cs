@@ -6,7 +6,9 @@ public class GameLoop : MonoBehaviour
 {
     public bool[] CorrectKeyFormation = new bool[(int)SymbolModel.eKey.COUNT];
 
-    
+    public NorseSymbol m_CurrentSymbol;
+    public NorseSymbol m_CompleteConditionSymbol;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -45,8 +47,10 @@ public class GameLoop : MonoBehaviour
         }
     }
 
-    private void HeardTraverseNode()
+    private void HeardTraverseNode(NodeBehaviour node)
     {
+         m_CurrentSymbol.IntersectionWith(node.m_Symbol);
+
         if(EnergyLauncher.instance.CurrentSymbolData.IsMatchingKey(CorrectKeyFormation))
         {
             Debug.Log("GAME WON!");

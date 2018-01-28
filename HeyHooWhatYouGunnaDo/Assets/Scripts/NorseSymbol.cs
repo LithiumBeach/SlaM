@@ -16,9 +16,11 @@ public class NorseSymbol : MonoBehaviour
     [SerializeField]
     private List<NorseLine> m_Lines = new List<NorseLine>();
 
+    public float m_DotSpacingScale = .25f;
+
     private void OnDotActivate(NorseDot dot)
     {
-        NorseDot prevDot = m_ActivatedDotStack.Count > 0 ? m_ActivatedDotStack[m_ActivatedDotStack.Count-1] : null;
+        NorseDot prevDot = m_ActivatedDotStack.Count > 0 ? m_ActivatedDotStack[m_ActivatedDotStack.Count - 1] : null;
         dot.IsActivated = true;
         if (prevDot != null)
         {
@@ -60,12 +62,55 @@ public class NorseSymbol : MonoBehaviour
         }
     }
 
+    internal void IntersectionWith(NorseSymbol otherSymbol)
+    {
+        List<NorseLine> linesToRemove = new List<NorseLine>();
+        for (int i = 0; i < m_Lines.Count; i++)
+        {
+            NorseLine nlCheck = otherSymbol.m_Lines.Find(
+                   item => ((item.A.m_GridPositionX == m_Lines[i].A.m_GridPositionX && item.A.m_GridPositionY == m_Lines[i].A.m_GridPositionY) &&
+                            (item.B.m_GridPositionX == m_Lines[i].B.m_GridPositionX && item.B.m_GridPositionY == m_Lines[i].B.m_GridPositionY)));
+            if (nlCheck == null)
+            {
+                nlCheck = otherSymbol.m_Lines.Find(
+                item => ((item.A.m_GridPositionX == m_Lines[i].B.m_GridPositionX && item.A.m_GridPositionY == m_Lines[i].B.m_GridPositionY) &&
+                         (item.B.m_GridPositionX == m_Lines[i].A.m_GridPositionX && item.B.m_GridPositionY == m_Lines[i].A.m_GridPositionY)));
+            }
+
+            if (nlCheck != null)
+            {
+                //we got em boys
+                linesToRemove.Add(m_Lines[i]);
+            }
+        }
+        for (int i = 0; i < linesToRemove.Count; i++)
+        {
+            linesToRemove[i].CleanUp();
+
+            m_Lines.Remove(linesToRemove[i]);
+
+            //set IsActivated to false if there are no more lines connected to this dot.
+            NorseLine lA = m_Lines.Find(
+                item => (item.A.m_GridPositionX == linesToRemove[i].A.m_GridPositionX && item.A.m_GridPositionY == linesToRemove[i].A.m_GridPositionY) ||
+                        (item.B.m_GridPositionX == linesToRemove[i].A.m_GridPositionX && item.B.m_GridPositionY == linesToRemove[i].A.m_GridPositionY)
+                );
+            NorseLine lB = m_Lines.Find(
+                item => (item.A.m_GridPositionX == linesToRemove[i].B.m_GridPositionX && item.A.m_GridPositionY == linesToRemove[i].B.m_GridPositionY) ||
+                        (item.B.m_GridPositionX == linesToRemove[i].B.m_GridPositionX && item.B.m_GridPositionY == linesToRemove[i].B.m_GridPositionY)
+                );
+
+            linesToRemove[i].A.IsActivated = lA != null;
+            linesToRemove[i].B.IsActivated = lB != null;
+        }
+
+    }
+
     private void OnDotDeactivate(NorseDot dot)
     {
         while (m_ActivatedDotStack.Count > 0)
         {
             NorseDot iterPop = m_ActivatedDotStack[m_ActivatedDotStack.Count - 1];
-            m_ActivatedDotStack.RemoveAt(m_ActivatedDotStack.Count-1);
+            m_ActivatedDotStack.RemoveAt(m_ActivatedDotStack.Count - 1);
             iterPop.IsActivated = false;
 
             if (m_Lines.Count > 0)
@@ -115,7 +160,7 @@ public class NorseSymbol : MonoBehaviour
                 NorseDot iter = Instantiate(PrefabManager.Instance.m_Data.m_NorseDot.gameObject, transform).GetComponent<NorseDot>();
                 //iter.m_SprDot.sprite = UIManager.Instance.m_Data.m_InactiveDot; //should be unnecessary, this should be set in the prefab
                 iter.name = "dot (" + x.ToString() + " ," + y.ToString() + ")";
-                iter.transform.position = new Vector3(x, y + (x % 2 == 1 ? .5f : 0f), 0);
+                iter.transform.position = new Vector3((x * m_DotSpacingScale), (y * m_DotSpacingScale) + (x % 2 == 1 ? (.5f * m_DotSpacingScale) : 0f), 0);
                 iter.m_GridPositionX = x;
                 iter.m_GridPositionY = y;
                 iter.AOnActivate = OnDotActivate;
