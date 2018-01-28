@@ -88,9 +88,9 @@ public class NodeBehaviour : MonoBehaviour
             ChangeCurrentColor(Color.grey);
             if(m_Operator != EBoolOperator.EndComparison)
                 SoundManager.Instance.PlayAudio((int)SoundManager.AudioClipKeys.Select);
-            var ps = GetComponentInChildren<ParticleSystem>();
-            if (ps)
-                ps.Play();
+            var effects = GetComponentsInChildren<ParticleSystem>();
+            foreach (var effect in effects)
+                effect.Play();
 
         }
     }
@@ -102,6 +102,9 @@ public class NodeBehaviour : MonoBehaviour
         IsRaycastSelected = false;
 
         ChangeCurrentColor(Color.white);
+        var effects = GetComponentsInChildren<ParticleSystem>();
+        foreach (var effect in effects)
+            effect.Stop();
     }
 
     public void ChangeCurrentColor(Color newColor)
