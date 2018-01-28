@@ -8,11 +8,8 @@ public class EnergyLauncher : MonoBehaviour
     public static EnergyLauncher instance = null;
     
     private GameObject RaycastSelectObject;
-    public SymbolModel CurrentSymbolData;
     public float RotateSpeed;
     public float LaunchDelay;
-    public bool StartNode;
-    public bool DBG_ControlWithMouse = true;
     private MeshRenderer _meshRenderer;
     private LineRenderer _lineRenderer;
     private bool _launched;
@@ -29,8 +26,7 @@ public class EnergyLauncher : MonoBehaviour
 
     private void Start()
     {
-        if (StartNode)
-            Initialize();
+        Initialize();
     }
 
     public void Initialize() {
@@ -38,7 +34,6 @@ public class EnergyLauncher : MonoBehaviour
         _lineRenderer.positionCount = 2;
         _lineRenderer.SetPositions(new Vector3[] { transform.position, CursorControl.instance.CursorPosition});
         _meshRenderer = GetComponentInParent<MeshRenderer>();
-        CurrentSymbolData = new SymbolModel();
     }
 
     private void Update() {
@@ -112,7 +107,6 @@ public class EnergyLauncher : MonoBehaviour
                     currentNode.OnTravelFrom();
 
                     SetToNode(RaycastSelectObject);
-                    CurrentSymbolData.ProcessUpdate(newNode._keyData);
                     newNode.OnTravelTo();
                     _launched = true;
                 }
@@ -135,7 +129,6 @@ public class EnergyLauncher : MonoBehaviour
 
     public void Recharge()
     {
-        StartNode = false;
         Launched = true;
         Initialize();
         StartCoroutine(LaunchCooldown());

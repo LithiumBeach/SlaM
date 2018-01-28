@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GameLoop : MonoBehaviour
 {
-    public bool[] CorrectKeyFormation = new bool[(int)SymbolModel.eKey.COUNT];
     public Level CurrentLevel;
     public NorseSymbol m_CurrentSymbol;
 
@@ -18,7 +17,6 @@ public class GameLoop : MonoBehaviour
     {
         Initialize();
         RegisterEvents();
-        RandomizeCorrectKey();
     }
 
     // Update is called once per frame
@@ -60,14 +58,6 @@ public class GameLoop : MonoBehaviour
         NodeBehaviour.OnNodeTraversed += HeardTraverseNode;
     }
 
-    private void RandomizeCorrectKey()
-    {
-        for (int i = 0; i < (int)SymbolModel.eKey.COUNT; ++i)
-        {
-            CorrectKeyFormation[i] = (Random.Range(0, 100) > 50);
-        }
-    }
-
     private void HeardTraverseNode(NodeBehaviour node)
     {
         m_history.Push(node);
@@ -93,7 +83,6 @@ public class GameLoop : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("Hard reset hey");
                     hardReset = true;
                 }
                 break;

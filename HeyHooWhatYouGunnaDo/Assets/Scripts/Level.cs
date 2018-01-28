@@ -21,8 +21,7 @@ public class Level : MonoBehaviour
     public bool CheckForWinState(NorseSymbol mySymbol) {
 
         //Compare your symbol to the win state
-
-        //  imma say fuck this method -- we do this already in GameLoop w/ a given end node when we traverse to it
+        //  Unncessary method -- already taken care of in GameLoop::m_currentSymbol
 
         return false;
     }

@@ -6,7 +6,7 @@ public class CursorControl : MonoBehaviour
 {
     public static CursorControl instance = null;
 
-    public float CursorSpeed = 8f;
+    public float CursorSpeed = .4f;
 
     private void Awake()
     {
