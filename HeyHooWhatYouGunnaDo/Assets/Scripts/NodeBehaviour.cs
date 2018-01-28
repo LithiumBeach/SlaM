@@ -132,15 +132,10 @@ public class NodeBehaviour : MonoBehaviour
     public bool IsCursorSelected;
     public bool IsRaycastSelected;
     public float WarningColorTime = 2f;
-<<<<<<< HEAD
     private Color _blockingColor = Color.cyan;
-    private Color _warningColor = Color.magenta;
-    private Color _selectColor = Color.yellow;
-=======
     public Color _warningColor = Color.magenta;
     public Color _selectColor = Color.yellow;
     public NorseSymbol m_Symbol = null;
->>>>>>> e86165b06727f4713c67f8ea03b4f80114150d53
     private Color _currentColor;
     private eNodeActivity _currentActivity = eNodeActivity.Idle;
 
