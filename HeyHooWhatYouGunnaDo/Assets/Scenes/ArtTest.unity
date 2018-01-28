@@ -453,6 +453,7 @@ GameObject:
   - component: {fileID: 171458771}
   - component: {fileID: 171458770}
   - component: {fileID: 171458769}
+  - component: {fileID: 171458773}
   m_Layer: 0
   m_Name: Rock4
   m_TagString: Untagged
@@ -530,6 +531,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 145.304, z: 0}
+--- !u!114 &171458773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 171458768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c816ae40feb45fb80ab9f9afd04b2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CompletedEffect: {fileID: 1565351772}
+  TargetSymbol: {fileID: 0}
 --- !u!1 &174394699
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,6 +555,7 @@ GameObject:
   - component: {fileID: 174394702}
   - component: {fileID: 174394701}
   - component: {fileID: 174394700}
+  - component: {fileID: 174394704}
   m_Layer: 0
   m_Name: Rock8
   m_TagString: Untagged
@@ -618,6 +633,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: -46.569004, z: 0}
+--- !u!114 &174394704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 174394699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c816ae40feb45fb80ab9f9afd04b2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CompletedEffect: {fileID: 0}
+  TargetSymbol: {fileID: 0}
 --- !u!1 &201856352
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,6 +657,7 @@ GameObject:
   - component: {fileID: 201856355}
   - component: {fileID: 201856354}
   - component: {fileID: 201856353}
+  - component: {fileID: 201856357}
   m_Layer: 0
   m_Name: Rock3
   m_TagString: Untagged
@@ -706,6 +735,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &201856357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 201856352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c816ae40feb45fb80ab9f9afd04b2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CompletedEffect: {fileID: 347066405}
+  TargetSymbol: {fileID: 0}
 --- !u!1 &288758649
 GameObject:
   m_ObjectHideFlags: 0
@@ -893,6 +935,10 @@ Prefab:
 --- !u!4 &347066404 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: ada5d62ffe762ce4fbccc70dcdbc9022, type: 2}
+  m_PrefabInternal: {fileID: 347066403}
+--- !u!1 &347066405 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: ada5d62ffe762ce4fbccc70dcdbc9022, type: 2}
   m_PrefabInternal: {fileID: 347066403}
 --- !u!1 &382771518
 GameObject:
@@ -1295,6 +1341,10 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: ada5d62ffe762ce4fbccc70dcdbc9022, type: 2}
   m_PrefabInternal: {fileID: 810227253}
+--- !u!1 &810227255 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: ada5d62ffe762ce4fbccc70dcdbc9022, type: 2}
+  m_PrefabInternal: {fileID: 810227253}
 --- !u!1 &851119335
 GameObject:
   m_ObjectHideFlags: 0
@@ -1547,6 +1597,10 @@ Prefab:
 --- !u!4 &862804132 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: ada5d62ffe762ce4fbccc70dcdbc9022, type: 2}
+  m_PrefabInternal: {fileID: 862804131}
+--- !u!1 &862804133 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: ada5d62ffe762ce4fbccc70dcdbc9022, type: 2}
   m_PrefabInternal: {fileID: 862804131}
 --- !u!1 &996728684
 GameObject:
@@ -1822,6 +1876,7 @@ GameObject:
   - component: {fileID: 1019338659}
   - component: {fileID: 1019338658}
   - component: {fileID: 1019338657}
+  - component: {fileID: 1019338661}
   m_Layer: 0
   m_Name: Rock2
   m_TagString: Untagged
@@ -1899,6 +1954,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 51.812004, z: 0}
+--- !u!114 &1019338661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1019338656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c816ae40feb45fb80ab9f9afd04b2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CompletedEffect: {fileID: 1945941990}
+  TargetSymbol: {fileID: 0}
 --- !u!1 &1037005189
 GameObject:
   m_ObjectHideFlags: 0
@@ -1981,6 +2049,7 @@ GameObject:
   - component: {fileID: 1044438122}
   - component: {fileID: 1044438121}
   - component: {fileID: 1044438120}
+  - component: {fileID: 1044438124}
   m_Layer: 0
   m_Name: Rock6
   m_TagString: Untagged
@@ -2058,6 +2127,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 223.986, z: 0}
+--- !u!114 &1044438124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1044438119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c816ae40feb45fb80ab9f9afd04b2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CompletedEffect: {fileID: 1096310724}
+  TargetSymbol: {fileID: 0}
 --- !u!1 &1078041945
 GameObject:
   m_ObjectHideFlags: 0
@@ -2295,6 +2377,10 @@ Prefab:
 --- !u!4 &1096310723 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: ada5d62ffe762ce4fbccc70dcdbc9022, type: 2}
+  m_PrefabInternal: {fileID: 1096310722}
+--- !u!1 &1096310724 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: ada5d62ffe762ce4fbccc70dcdbc9022, type: 2}
   m_PrefabInternal: {fileID: 1096310722}
 --- !u!1 &1126116355
 GameObject:
@@ -2745,6 +2831,10 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: ada5d62ffe762ce4fbccc70dcdbc9022, type: 2}
   m_PrefabInternal: {fileID: 1565351770}
+--- !u!1 &1565351772 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: ada5d62ffe762ce4fbccc70dcdbc9022, type: 2}
+  m_PrefabInternal: {fileID: 1565351770}
 --- !u!1 &1722497700
 GameObject:
   m_ObjectHideFlags: 0
@@ -2928,6 +3018,7 @@ GameObject:
   - component: {fileID: 1889861470}
   - component: {fileID: 1889861469}
   - component: {fileID: 1889861468}
+  - component: {fileID: 1889861472}
   m_Layer: 0
   m_Name: Rock5
   m_TagString: Untagged
@@ -3005,6 +3096,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &1889861472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1889861467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c816ae40feb45fb80ab9f9afd04b2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CompletedEffect: {fileID: 862804133}
+  TargetSymbol: {fileID: 0}
 --- !u!1001 &1945941988
 Prefab:
   m_ObjectHideFlags: 0
@@ -3107,6 +3211,10 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: ada5d62ffe762ce4fbccc70dcdbc9022, type: 2}
   m_PrefabInternal: {fileID: 1945941988}
+--- !u!1 &1945941990 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: ada5d62ffe762ce4fbccc70dcdbc9022, type: 2}
+  m_PrefabInternal: {fileID: 1945941988}
 --- !u!1 &1947238693
 GameObject:
   m_ObjectHideFlags: 0
@@ -3118,6 +3226,7 @@ GameObject:
   - component: {fileID: 1947238696}
   - component: {fileID: 1947238695}
   - component: {fileID: 1947238694}
+  - component: {fileID: 1947238698}
   m_Layer: 0
   m_Name: Rock7
   m_TagString: Untagged
@@ -3195,6 +3304,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!114 &1947238698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1947238693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c816ae40feb45fb80ab9f9afd04b2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CompletedEffect: {fileID: 2126574598}
+  TargetSymbol: {fileID: 0}
 --- !u!1001 &1963229374
 Prefab:
   m_ObjectHideFlags: 0
@@ -3376,6 +3498,7 @@ GameObject:
   - component: {fileID: 2035653725}
   - component: {fileID: 2035653724}
   - component: {fileID: 2035653723}
+  - component: {fileID: 2035653727}
   m_Layer: 0
   m_Name: Rock1
   m_TagString: Untagged
@@ -3453,6 +3576,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2035653727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2035653722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c816ae40feb45fb80ab9f9afd04b2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CompletedEffect: {fileID: 810227255}
+  TargetSymbol: {fileID: 0}
 --- !u!1001 &2126574596
 Prefab:
   m_ObjectHideFlags: 0
@@ -3554,4 +3690,8 @@ Prefab:
 --- !u!4 &2126574597 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: ada5d62ffe762ce4fbccc70dcdbc9022, type: 2}
+  m_PrefabInternal: {fileID: 2126574596}
+--- !u!1 &2126574598 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: ada5d62ffe762ce4fbccc70dcdbc9022, type: 2}
   m_PrefabInternal: {fileID: 2126574596}
