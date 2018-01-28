@@ -3,20 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(LineRenderer), typeof(MeshRenderer), typeof(MeshCollider))]
-public class EnergyLauncher : MonoBehaviour {
-
+public class EnergyLauncher : MonoBehaviour
+{
+    public static EnergyLauncher instance = null;
+    
     public GameObject LaunchDirector;
     public Material FocusMaterial;
     public Material UnfocusMaterial;
+    public SymbolModel CurrentSymbolData;
     public float RotateSpeed;
     public float LaunchDistance;
     public float LaunchDelay;
     public bool StartNode;
+    public bool DBG_ControlWithMouse = true;
     private MeshRenderer _meshRenderer;
     private LineRenderer _lineRenderer;
     private bool _launched;
-
-    private SymbolModel _currentSymbolData;
 
     public bool Launched{
         set {_launched = value; }
@@ -26,6 +28,8 @@ public class EnergyLauncher : MonoBehaviour {
     private void Awake() {
         if (StartNode)
             Initialize();
+
+        instance = this;
     }
 
     public void Initialize() {
@@ -34,7 +38,7 @@ public class EnergyLauncher : MonoBehaviour {
         _lineRenderer.SetPositions(new Vector3[] { transform.position, LaunchDirector.transform.position });
         _meshRenderer = GetComponent<MeshRenderer>();
         _meshRenderer.material = FocusMaterial;
-        _currentSymbolData = new SymbolModel();
+        CurrentSymbolData = new SymbolModel();
     }
 
     private void Update() {
@@ -61,9 +65,8 @@ public class EnergyLauncher : MonoBehaviour {
             if (nodeObj != null && nodeObj.IsOpen)
             {
                 EnergizeNode(hit.transform.gameObject);
+                CurrentSymbolData.ProcessUpdate(nodeObj._keyData);
                 nodeObj.OnTravelTo();
-                _currentSymbolData.ProcessUpdate(nodeObj._keyData);
-                Debug.Log("Player Keys: " + _currentSymbolData.DebugKeys());
                 resetLaunch = false;
             }
         }
@@ -134,13 +137,24 @@ public class EnergyLauncher : MonoBehaviour {
         //
         // LaunchDirector.transform.RotateAround(transform.position, Vector3.forward, angle);
 
-        _lineRenderer.SetPosition(0, transform.position);
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = 0;
-        Vector3 endPoint = transform.position + (mousePos - transform.position).normalized * 2f;
-        endPoint.z = 0;
-        _lineRenderer.SetPosition(1, endPoint);
 
-        LaunchDirector.transform.position = endPoint;
+        if(!DBG_ControlWithMouse)
+        {
+            float axisFactor = Input.GetAxis("Horizontal");
+
+            LaunchDirector.transform.RotateAround(transform.position, Vector3.forward, axisFactor * -RotateSpeed);
+            _lineRenderer.SetPosition(1, LaunchDirector.transform.position);
+        }
+        else
+        {
+            _lineRenderer.SetPosition(0, transform.position);
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePos.z = 0;
+            Vector3 endPoint = transform.position + (mousePos - transform.position).normalized * 2f;
+            endPoint.z = 0;
+            _lineRenderer.SetPosition(1, endPoint);
+
+            LaunchDirector.transform.position = endPoint;
+        }
     }
 }

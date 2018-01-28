@@ -91,7 +91,20 @@ public class SymbolModel
         }
     }
 
-    public string DebugKeys()
+    public bool IsMatchingKey(bool[] correctKey)
+    {
+        for(int i = 0; i < (int)eKey.COUNT; ++i)
+        {
+            if(ActiveKeys[i] != correctKey[i])
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public string GetActiveKeysDebug()
     {
         string debugString = "";
         for(int i = 0; i < (int)eKey.COUNT; ++i)
@@ -109,6 +122,9 @@ public class NodeBehaviour : MonoBehaviour
 {
     public SymbolModel _keyData;
     public bool IsOpen;
+
+    public delegate void NodeTraversed();
+    public static event NodeTraversed OnNodeTraversed;
 
 	// Use this for initialization
 	void Start ()
@@ -129,11 +145,10 @@ public class NodeBehaviour : MonoBehaviour
     public void OnTravelTo()
     {
         IsOpen = false;
-    }
-
-    public SymbolModel GetSymbolUpdate()
-    {
-        return null;
+        if(OnNodeTraversed != null)
+        {
+            OnNodeTraversed();
+        }
     }
 
     private void ResetNode()
