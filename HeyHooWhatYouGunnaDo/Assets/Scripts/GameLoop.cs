@@ -54,7 +54,17 @@ public class GameLoop : SingletonBehavior<GameLoop>
         if (_currentLevelIndex != Levels.Length - 1)
         {
             _currentLevelIndex++;
+
+            //  Disable past level
+            CurrentLevel.CleanLightLines();
+            NodeBehaviour.ResetNodes();
+            CurrentLevel.gameObject.SetActive(false);
+
             CurrentLevel = Levels[_currentLevelIndex];
+
+            CurrentLevel.gameObject.SetActive(true);
+            CurrentLevel.ResetLevel();
+
             if (AOnChangeLevel != null)
             {
                 AOnChangeLevel();

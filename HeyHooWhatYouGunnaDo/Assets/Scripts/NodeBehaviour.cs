@@ -37,14 +37,21 @@ public class NodeBehaviour : MonoBehaviour
 
     public EBoolOperator m_Operator = EBoolOperator.Union;
 
+    private void OnEnable()
+    {
+        AllNodes.Add(this);
+        ResetNode();
+    }
+
+    private void OnDisable()
+    {
+        AllNodes.Remove(this);
+    }
+
     // Use this for initialization
     void Start ()
     {
-        AllNodes.Add(this);
-        
         Debug.Assert(m_Symbol != null);
-
-        ResetNode();
 	}
 	
 	// Update is called once per frame
