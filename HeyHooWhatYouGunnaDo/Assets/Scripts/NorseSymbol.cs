@@ -18,7 +18,10 @@ public class NorseSymbol : MonoBehaviour
 
     void Awake()
     {
-        ReInitializeDots();
+        if (!Application.isPlaying)
+        {
+            ReInitializeDots(); 
+        }
     }
 
     private void OnDotActivate(NorseDot dot)
@@ -64,6 +67,7 @@ public class NorseSymbol : MonoBehaviour
             m_ActivatedDotStack.Push(dot);
         }
     }
+
     private void OnDotDeactivate(NorseDot dot)
     {
         while (m_ActivatedDotStack.Count > 0)
