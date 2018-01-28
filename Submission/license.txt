@@ -1,0 +1,193 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf200
+{\fonttbl\f0\froman\fcharset0 Times-Roman;\f1\fnil\fcharset0 LucidaGrande;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red0\green0\blue233;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c0\c0\c93333;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid201\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}
+{\list\listtemplateid4\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid301\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid4}
+{\list\listtemplateid5\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid401\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{circle\}}{\leveltext\leveltemplateid402\'01\uc0\u9702 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listname ;}\listid5}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}{\listoverride\listid5\listoverridecount0\ls5}}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl560\sa321\partightenfactor0
+
+\f0\b\fs48 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Code of Conduct, Legal & Policies\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\b0\fs24 \cf2 \
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\b \cf2 Inclusiveness Policy
+\b0 \
+The Global Game Jam\'ae (GGJ) focuses on bringing communities together through collaboration, innovation and experimentation and our website engages that spirit. No sexism, racism, discrimination or any kind of exclusion will be tolerated in association with the GGJ and we reserve the right to refuse and/or remove content based on our principles. We encourage inclusive and welcoming environments in all our locations. We encourage a free and open activity where creativity should know no censorship and we hope all participants will exercise their creative freedoms. We take pride in our jammers and organizers, but the Global Game Jam\'a0Inc. is not liable for anyone's specific views and opinions.\
+\'a0\
+
+\b Code of Conduct
+\b0 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls1\ilvl0
+\b \cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Purpose
+\b0  The Global Game Jam\'ae\'a0(GGJ) focuses on bringing communities together through collaboration, innovation, and experimentation and our website engages that spirit. \uc0\u8236 As\u8237  \u8236 such,\u8237  \u8236 we\u8237  \u8236 are\u8237  \u8236 committed\u8237  \u8236 to\u8237  \u8236 providing\u8237  \u8236 a\u8237  \u8236 friendly,\u8237  \u8236 safe,\u8237  \u8236 and\u8237  \u8236 welcoming\u8237  \u8236 environment\u8237  \u8236 for\u8237  \u8236 all,\u8237  \u8236 regardless\u8237  \u8236 of\u8237  \u8236 gender,\u8237  \u8236 sexual\u8237  \u8236 orientation,\u8237  \u8236 ability,\u8237  \u8236 appearance, ethnicity,\u8237  national origin, \u8236 citizenship, socioeconomic\u8237  \u8236 status,\u8237  \u8236 and\u8237  \u8236 religion\u8237  (\u8236 or\u8237  \u8236 lack\u8237  \u8236 thereof\u8237 )\u8236 .\u8237 \u8232 This\u8237  \u8236 code\u8237  \u8236 of\u8237  \u8236 conduct\u8237  \u8236 outlines\u8237  \u8236 our\u8237  \u8236 guidelines \u8236 for\u8237  \u8236 all\u8237  \u8236 those\u8237  \u8236 who\u8237  \u8236 participate\u8237  \u8236 in\u8237  \u8236 our\u8237  \u8236 community,\u8237  \u8236 as\u8237  \u8236 well\u8237  \u8236 as\u8237  \u8236 the\u8237  \u8236 consequences\u8237  \u8236 for\u8237  \u8236 unacceptable\u8237  \u8236 behavior. We\u8237  \u8236 invite\u8237  \u8236 all\u8237  \u8236 those\u8237  \u8236 who\u8237  \u8236 participate\u8237  \u8236 in\u8237  GGJ\u8237  \u8236 to\u8237  \u8236 help\u8237  \u8236 us\u8237  maintain these guidelines and \u8236 create\u8237  \u8236 safe\u8237  \u8236 and\u8237  \u8236 positive\u8237  \u8236 experiences\u8237  \u8236 for\u8237  \u8236 everyone.\'a0\u8232 \'a0\u8232 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls1\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \uc0\u8207 
+\b Appropriate \uc0\u8236 Behavior
+\b0  We wish for GGJ participants to exercise\uc0\u8237  \u8236 consideration\u8237  \u8236 and\u8237  \u8236 respect\u8237  \u8236 in\u8237  their \u8236 speech\u8237  \u8236 and\u8237  \u8236 actions, attempt\u8237  \u8236 collaboration\u8237  \u8236 before\u8237  \u8236 conflict, and refrain\u8237  \u8236 from\u8237  \u8236 demeaning,\u8237  \u8236 discriminatory,\u8237  \u8236 or\u8237  \u8236 harassing\u8237  \u8236 behavior\u8237  \u8236 and\u8237  \u8236 speech. We also expect the same consideration and respect to be applied to games and content created during GGJ events.\u8232 Be\u8237  \u8236 mindful\u8237  \u8236 of\u8237  \u8236 your\u8237  \u8236 surroundings\u8237  \u8236 and\u8237  \u8236 of\u8237  \u8236 your\u8237  \u8236 fellow\u8237  \u8236 participants.\u8237  \u8236 Alert\u8237  \u8236 community\u8237  \u8236 leaders and site organizers immediately\u8237  \u8236 if\u8237  \u8236 you\u8237  \u8236 notice\u8237  \u8236 a\u8237  \u8236 dangerous\u8237  \u8236 situation,\u8237  \u8236 someone\u8237  \u8236 in\u8237  \u8236 distress,\u8237  \u8236 or\u8237  \u8236 violations\u8237  \u8236 of\u8237  \u8236 this\u8237  \u8236 Code\u8237  \u8236 of\u8237  \u8236 Conduct,\u8237  \u8236 even\u8237  \u8236 if\u8237  \u8236 they\u8237  \u8236 seem\u8237  \u8236 inconsequential.\u8232 \'a0\u8232 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls2\ilvl0
+\b \cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Unacceptable\uc0\u8237  \u8236 Behavior
+\b0  Unacceptable\uc0\u8237  \u8236 behaviors\u8237  \u8236 include:\u8237  \u8236 intimidating,\u8237  \u8236 harassing,\u8237  \u8236 abusive,\u8237  \u8236 discriminatory,\u8237  \u8236 derogatory\u8237  \u8236 or\u8237  \u8236 demeaning\u8237  \u8236 speech\u8237  \u8236 or\u8237  actions\u8237  \u8236 by\u8237  \u8236 any\u8237  \u8236 participant\u8237  \u8236 in\u8237  \u8236 our\u8237  \u8236 site locations or\u8237  \u8236 online community,\u8237  \u8236 at\u8237  \u8236 all\u8237  \u8236 related\u8237  \u8236 events\u8237  \u8236 and\u8237  \u8236 in\u8237  \u8236 one-on-one\u8237  \u8236 communications\u8237  \u8236 carried\u8237  \u8236 out\u8237  \u8236 in\u8237  \u8236 the\u8237  \u8236 context\u8237  \u8236 of\u8237  \u8236 community\u8237  \u8236 business.\u8237  \u8236 Community\u8237  \u8236 event\u8237  \u8236 venues\u8237  \u8236 may\u8237  \u8236 be\u8237  \u8236 shared\u8237  \u8236 with\u8237  \u8236 members\u8237  \u8236 of\u8237  \u8236 the\u8237  \u8236 public\u8237 ; \u8236 please\u8237  \u8236 be\u8237  \u8236 respectful\u8237  \u8236 to\u8237  \u8236 all\u8237  \u8236 patrons\u8237  \u8236 of\u8237  \u8236 these\u8237  \u8236 locations.\u8232 Harassment\u8237  \u8236 includes:\u8237  \u8236 harmful\u8237  \u8236 or\u8237  \u8236 prejudicial\u8237  \u8236 verbal\u8237  \u8236 or\u8237  \u8236 written\u8237  \u8236 comments\u8237  \u8236 related\u8237  \u8236 to\u8237  \u8236 gender,\u8237  \u8236 sexual\u8237  \u8236 orientation,\u8237  age, \u8236 ability,\u8237  \u8236 appearance, ethnicity,\u8237  national origin, \u8236 citizenship, socioeconomic\u8237  \u8236 status,\u8237  \u8236 or\u8237  \u8236 religion\u8237 ; \u8236 deliberate\u8237  \u8236 intimidation,\u8237  \u8236 stalking\u8237  \u8236 or\u8237  \u8236 following\u8237 ; \u8236 harassing\u8237  \u8236 photography\u8237  \u8236 or\u8237  \u8236 recording\u8237 ; \u8236 sustained\u8237  \u8236 disruption\u8237  \u8236 of\u8237  \u8236 talks\u8237  \u8236 or\u8237  \u8236 other\u8237  \u8236 events\u8237 ; \u8236 inappropriate\u8237  \u8236 physical\u8237  \u8236 contact; \u8236 and\u8237  \u8236 unwelcome\u8237  \u8236 sexual\u8237  \u8236 attention.\u8232 \'a0\u8232 \
+\ls2\ilvl0
+\b \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Consequences\uc0\u8237  \u8236 of\u8237  \u8236 Unacceptable\u8237  \u8236 Behavior
+\b0  Anyone\uc0\u8237  \u8236 asked\u8237  \u8236 to\u8237  \u8236 stop\u8237  \u8236 unacceptable\u8237  \u8236 behavior\u8237  \u8236 is\u8237  \u8236 expected\u8237  \u8236 to\u8237  \u8236 comply\u8237  \u8236 immediately.\u8232 If\u8237  \u8236 a\u8237  \u8236 community\u8237  \u8236 member\u8237  \u8236 engages\u8237  \u8236 in\u8237  \u8236 unacceptable\u8237  \u8236 behavior,\u8237  \u8236 local \u8236 GGJ organizers\u8237  \u8236 may\u8237  \u8236 take\u8237  action\u8237  top stop the unacceptable behavior,\u8237  \u8236 up\u8237  \u8236 to\u8237  \u8236 and\u8237  \u8236 including\u8237  \u8236 a\u8237  \u8236 temporary\u8237  \u8236 ban\u8237  \u8236 or\u8237  \u8236 permanent\u8237  \u8236 expulsion\u8237  \u8236 from\u8237  \u8236 the\u8237  \u8236 community\u8237  \u8236 without\u8237  \u8236 warning\u8237  (\u8236 and\u8237  \u8236 without\u8237  \u8236 refund\u8237  \u8236 in\u8237  \u8236 the\u8237  \u8236 case\u8237  \u8236 of\u8237  \u8236 a\u8237  \u8236 paid\u8237  \u8236 event\u8237 )\u8236 .\u8232 \'a0\u8232 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls2\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \uc0\u8207 
+\b If\uc0\u8237  \u8236 You\u8237  \u8236 Witness\u8237  \u8236 or\u8237  \u8236 Are\u8237  \u8236 Subject\u8237  \u8236 to\u8237  \u8236 Unacceptable\u8237  \u8236 Behavior
+\b0  If\uc0\u8237  \u8236 you\u8237  \u8236 are\u8237  \u8236 subject\u8237  \u8236 to\u8237  \u8236 or\u8237  \u8236 witness\u8237  \u8236 unacceptable\u8237  \u8236 behavior,\u8237  \u8236 or\u8237  \u8236 have\u8237  \u8236 any\u8237  \u8236 other\u8237  \u8236 concerns,\u8237  \u8236 please\u8237  \u8236 notify\u8237  your local or regional \u8236 GGJ organizer\u8237  \u8236 as\u8237  \u8236 soon\u8237  \u8236 as\u8237  \u8236 possible or submit a notice through {\field{\*\fldinst{HYPERLINK "https://goo.gl/forms/IfH1TjMGbWil2zY33"}}{\fldrslt \cf3 \ul \ulc3 \strokec3 this form}}\'a0(can be submitted\'a0anonymously).\uc0\u8232 \'a0\u8232 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls2\ilvl0
+\b \cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Addressing\uc0\u8237  \u8236 Grievances
+\b0  If\uc0\u8237  \u8236 you\u8237  \u8236 feel\u8237  \u8236 you\u8237  \u8236 have\u8237  \u8236 been\u8237  \u8236 falsely\u8237  \u8236 or\u8237  \u8236 unfairly\u8237  \u8236 accused\u8237  \u8236 of\u8237  \u8236 violating\u8237  \u8236 this\u8237  \u8236 Code\u8237  \u8236 of\u8237  \u8236 Conduct,\u8237  \u8236 you\u8237  \u8236 should\u8237  \u8236 notify\u8237  your local or regional GGJ organizer \u8236 with\u8237  \u8236 a\u8237  \u8236 concise\u8237  \u8236 description\u8237  \u8236 of\u8237  \u8236 your\u8237  \u8236 grievance.\u8237  \u8236 \u8232 \'a0\u8232 \
+\ls2\ilvl0
+\b \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Scope
+\b0  We\uc0\u8237  wish for\u8237  \u8236 all\u8237  \u8236 community\u8237  \u8236 participants\u8237  (\u8236 contributors,\u8237  \u8236 paid\u8237  \u8236 or\u8237  \u8236 otherwise\u8237 ; \u8236 sponsors\u8237 ; \u8236 and\u8237  \u8236 other\u8237  \u8236 guests\u8237 ) \u8236 to\u8237  \u8236 abide\u8237  \u8236 by\u8237  \u8236 this\u8237  \u8236 Code\u8237  \u8236 of\u8237  \u8236 Conduct\u8237  \u8236 in\u8237  \u8236 all\u8237  \u8236 GGJ \u8236 venues\u8237 \'97\u8236 online\u8237  \u8236 and\u8237  \u8236 in-person\u8237 \'97\u8236 as\u8237  \u8236 well\u8237  \u8236 as\u8237  \u8236 in\u8237  \u8236 all\u8237  \u8236 one-on-one\u8237  \u8236 or group communications\u8237  \u8236 pertaining\u8237  \u8236 to\u8237  \u8236 community\u8237  \u8236 business.\u8232 \'a0\u8232 \
+\ls2\ilvl0
+\b \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Contact\uc0\u8237  \u8236 info
+\b0  Global Game Jam\'ae Executive Committee: {\field{\*\fldinst{HYPERLINK "mailto:help@globalgamejam.org"}}{\fldrslt \cf3 \ul \ulc3 \strokec3 help@globalgamejam.org \'a0\'a0}}\uc0\u8232 {\field{\*\fldinst{HYPERLINK "https://goo.gl/forms/IfH1TjMGbWil2zY33"}}{\fldrslt \cf3 \ul \ulc3 \strokec3 Complaints form}}\'a0{\field{\*\fldinst{HYPERLINK "mailto:help@globalgamejam.org"}}{\fldrslt \cf3 \ul \ulc3 \strokec3  }}(can be submitted\'a0anonymously).\uc0\u8232 \'a0\u8232 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls2\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \uc0\u8207 
+\b License\uc0\u8237  \u8236 and\u8237  \u8236 attribution
+\b0  This\uc0\u8237  \u8236 Code\u8237  \u8236 of\u8237  \u8236 Conduct\u8237  \u8236 is\u8237  \u8236 distributed\u8237  \u8236 under\u8237  \u8236 a\u8237  \u8236 Creative\u8237  \u8236 Commons\u8237  \u8236 Attribution-ShareAlike\u8237  \u8236 license. The original is available at {\field{\*\fldinst{HYPERLINK "http://opensourcebridge.org/about/code-of-conduct/"}}{\fldrslt \cf3 \ul \ulc3 \strokec3 http://opensourcebridge.org/about/code-of-conduct/}}.\uc0\u8232 \
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\b \cf2 Content Policy
+\b0 \
+The Global Game Jam\'ae is about experimentation, sharing, collaboration and learning from each other. All Jammers are expected to share their games by uploading their games, assets, source code etc.\
+Games are uploaded under the {\field{\*\fldinst{HYPERLINK "https://creativecommons.org/licenses/by-nc-sa/4.0/"}}{\fldrslt \cf3 \ul \ulc3 \strokec3 Attribution-NonCommercial-ShareAlike 4.0 Creative Commons license}} ({\field{\*\fldinst{HYPERLINK "https://creativecommons.org/licenses/by-nc-sa/4.0/"}}{\fldrslt \cf3 \ul \ulc3 \strokec3 https://creativecommons.org/licenses/by-nc-sa/4.0/}}).\
+This basically means the team that created the game, owns the original content and can do with it as they please, and that Global Game Jam\'ae retains an original copy that other people can download, modify and distribute for non-commercial purposes.\'a0\
+All files necessary to run the game, as well as all assets, source\'a0code and project files created during the GGJ and necessary to\'a0rebuild/compile & link the game from scratch must be uploaded as well.\'a0Third party tools, libraries, engines and assets that are used for the\'a0game, but not created during the GGJ, may be omitted from the GGJ\'a0project submission. However, clear instructions must be included on\'a0how to purchase or obtain these resources in order to continue\'a0development on the game.\
+GGJ also reserves the right to remove any uploaded games if the content is offensive or unsuitable. This\'a0\uc0\u8236 includes but is not limited to:\u8237  games with\'a0\u8236 harmful\u8237  \u8236 or\u8237  \u8236 prejudicial\u8237  themes\'a0related\u8237  \u8236 to\u8237  \u8236 gender,\u8237  \u8236 sexual\u8237  \u8236 orientation,\u8237  age, \u8236 ability,\u8237  \u8236 appearance, ethnicity,\u8237  national origin, \u8236 citizenship, socioeconomic\u8237  \u8236 status,\u8237  \u8236 or\u8237  \u8236 religion\u8237 . If you see a game being created, or find a game on our site\'a0which would violate these terms email {\field{\*\fldinst{HYPERLINK "mailto:help@globalgamejam.org"}}{\fldrslt \cf3 \ul \ulc3 \strokec3 help@globalgamejam.org}} or fill in {\field{\*\fldinst{HYPERLINK "https://goo.gl/forms/ZsdKgddzSjQpJ0hV2"}}{\fldrslt \cf3 \ul \ulc3 \strokec3 this form}}\'a0(can be submitted anonymously).\
+
+\b Privacy Policy
+\b0 \
+
+\b Policy for Email Usage (general)
+\b0 \
+Global Game Jam\'ae respects our community member\'92s privacy. As a non-profit organization, Global Game Jam\'ae has never sold or otherwise shared participant email for the purpose of profit to any third party organizations. \'a0As of 2015 the organization is distinguishing our contact information into two categories. \'a0Our general email list will remain a private list, used only for official communication from the the Global Game Jam non profit and will include the GGJ Newsletter. Our new, opt-in lists provides an opportunity for members of our Global Game Jam community network to contact Global Game Jam participants. These opt-in-lists contain only the email addresses of individuals who have explicitly indicated interest in GGJ announcements from sponsors and promotions.\
+Consent to this general email usage policy is granted by participating in or registering for the Global Game Jam\'ae.\
+\'a0\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls3\ilvl0
+\b \cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 For Participants:\'a0
+\b0 Your email address will only be used by the GGJ. We do not sell or rent or email our general list of email addresses to third parties. Other than what is explicitly stated below, the GGJ will not share email addresses with unrelated third-parties, affiliates, or regular GGJ members. Please understand, your email address will be shared internally for communication of GGJ events and for compliance to any legal matters.\
+\ls3\ilvl0
+\b \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The GGJ may also share your Email address with third parties to enable the GGJ to take security measures to help protect against unauthorized access to or unauthorized alteration, disclosure, or destruction of data. \'a0Finally, the GGJ may share Email addresses with third parties as necessary for the GGJ to perform certain services on our behalf, such as packaging, mailing and delivering products and processing event registrations and to respond to your service requests. \'a0
+\b0 \
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+\cf2 \'a0\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\b \cf2 Usage of General Participant Emails:
+\b0 \
+Once collected, we may use your Personally Identifiable Information in a variety of ways including, but not limited to:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls4\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Provide service communications such as confirmations, program registrations, and community service messages\
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Respond to your emails or online requests for products, services, or information\
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Deliver and process surveys\
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Personalize and improve the usability of the Sites\
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Fulfill and/or deliver Global Game Jam\'ae community tools products and services\
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Tailor content, advertising and marketing to you\
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Share with third parties as required by law\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+\cf2 \'a0\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\b \cf2 Opt in Policy
+\b0 \
+Your e-mail address will be used by the GGJ as with any general participant email. As an opt-in participant your email address will also be provided to third parties to provide you information about game related opportunities. This includes job opportunities, contracts, sub-contracts, products and services offered by third parties.\
+\'a0\
+
+\b Opt in Email Usage
+\b0 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls5\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Publish membership directories and registration lists to a limited audience (non-public distribution)\
+\ls5\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Sharing with certain other companies to offer you products and services that may be of interest to you as described below:\
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440\sl280\partightenfactor0
+\ls5\ilvl1\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\f1 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Third party sponsors wishing to contact our community about products, services and opportunities\
+\ls5\ilvl1\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\f1 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Other game making contests, press, journalists or allied communities within the Global Game Jam\'ae community network for the purpose of announcing, recruiting, advertising and applauding efforts of GGJ participants.\
+\ls5\ilvl1\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\f1 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The organization reserves the right to provide these emails to third parties when explicit consent is provided by the participant. \'a0\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+\cf2 \'a0\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\b \cf2 Organizers use of GGJ logo and use of Global Game Jam\'ae
+\b0 \
+Once a location is approved on the GGJ website, the organizer understands the requirements of GGJ\'a0and agrees to abide by the rules of Global Game Jam\'ae and use the trademark and logo responsibly and will update their site, media releases and communication accordingly.\'a0To be part of Global Game Jam\'ae, all locations must state on their website, media outings and other communications, that their location or local jam is part of the official Global Game Jam\'ae and will use the Global Game Jam\'ae logo provided by GGJ.\'a0The organizers will make sure to connect their registration platform of choice (i.e. Eventbrite, Ticketmaster, etc.) and their local webite will refer to the\'a0Global Game Jam\'ae website ({\field{\*\fldinst{HYPERLINK "http://www.globalgamejam.org/"}}{\fldrslt \cf3 \ul \ulc3 \strokec3 http://www.globalgamejam.org}}).\
+\'a0\
+
+\b Use of the GGJ logo
+\b0 \
+Third parties may not use the Global Game Jam\'ae logo without expressed written permission. The logo must always be accompanied with the words \'93Global Game Jam\'94 and\'a0linked directly to \'93globalgamejam.org\'94. It must not be used for any purpose other than to identify the Global Game Jam\'ae.\
+\'a0\
+
+\b Global Game Jam\'ae Policy on becoming a jam site
+\b0 \
+One of the things that make the GGJ unique, is that we require all jammers to participate from an approved location. A jam site will typically, but not always, be open to anyone who wants to participate. Most GGJ sites tend to be companies, co-working spaces or\'a0universities.\
+We discourage use of private residences and\'a0very\'a0rarely approve them.\'a0\
+It is not possible to participate in GGJ as a jammer without being associated to a physical approved site. This means we do not accept virtual sites or remote participants as a default.\
+All GGJ sites must, at\'a0minimum, provide free Internet access and space to set up and work comfortably.\
+\'a0\
+
+\b Global Game Jam\'ae Policy on attending as a jammer
+\b0 \
+To participate in the Global Game Jam event, you must be a legal adult in the country in which you attend the GGJ. See our age policy.\
+\'a0\
+
+\b GGJ Research
+\b0 \
+GGJ conducts studies and research related to each global Game Jam event.\'a0GGJ research strives to explore, understand and grow the art of games and game jamming. We endeavor to protect the rights, welfare, and well-being of subjects involved in research conducted or supported by Global Game Jam\'ae and the various researchers by adhering to strict legal and ethical protocols. Research is primarily conducted via survey, or observation. GGJ participants may choose to opt-out of interviews and observations by advising their local organizers or by not taking the survey.\
+\'a0\
+
+\b Age Policy
+\b0 \
+No person may participate in a Global Game Jam event\'ae unless they have reached 18 years of age or the age of majority (e.g. are legal adults) in the country of participation (whichever is younger). As an example, participants attending a GGJ site in Scotland or Cuba, must be 16 years of age or older to participate as that is the age of majority, while participants that join a site in the United States, New Zealand or Japan must be 18+ to attend.\
+The only exception to this rule, is if the minor is accompanied by a legal guardian at all times while attending the jam.\
+\'a0\
+
+\b Modification
+\b0 \
+The Global Game Jam\'ae reserves the right to change, modify or make exceptions to all policies at will.\
+By participating in GGJ or using the GGJ website you accept and abide by the policies stated above. Please contact us ({\field{\*\fldinst{HYPERLINK "mailto:info@globalgamejam.org"}}{\fldrslt \cf3 \ul \ulc3 \strokec3 info@globalgamejam.org}}) with any questions.\
+}
