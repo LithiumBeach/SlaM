@@ -101,7 +101,7 @@ public class GameLoop : SingletonBehavior<GameLoop>
         MoveYourSymbolTo(node.m_Symbol);
         node.m_Symbol.gameObject.SetActive(false);
 
-        if ((NodeBehaviour.AllNodesClosed() && CurrentLevel.LevelComplete) || hardReset)
+        if ((NodeBehaviour.AllNodesClosed() && !CurrentLevel.LevelComplete) || hardReset)
         {
             node.m_Symbol.gameObject.SetActive(true);
             ResetGame();
